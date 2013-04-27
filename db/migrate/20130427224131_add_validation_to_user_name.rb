@@ -1,6 +1,9 @@
 class AddValidationToUserName < ActiveRecord::Migration
-  def change
-    # don't change anything
-    # I'll just add validation at Model Level
+  def up
+    remove_column :users, :user_name
+  end
+
+  def down
+    add_column :users, :user_name
   end
 end

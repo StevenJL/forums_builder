@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427211414) do
+ActiveRecord::Schema.define(:version => 20130427234303) do
 
   create_table "meta_forums", :force => true do |t|
     t.string   "name"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20130427211414) do
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false
     t.boolean  "moderator",              :default => false
-    t.string   "user_name"
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
