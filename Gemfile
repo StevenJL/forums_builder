@@ -10,6 +10,7 @@ gem 'pry-rails'
 gem 'annotate'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'devise'
 
 
 # Gems used only for assets and not required
