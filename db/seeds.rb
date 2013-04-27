@@ -1,14 +1,22 @@
-SubForum.create(:name=>"Logistics Discussion", :description=>"Discuss logistics matters here")
-SubForum.create(:name=>"Spaceship Maintanence", :parent_id=>1)
-SubForum.create(:name=>"Faster Delivery Routes", :parent_id=>1)
+MetaForum.create(:name=> "Planet Express Forums", :description => "An Internet for Planet Express Employees")
 
-SubForum.create(:name=>"Employee Matters", :description=>"Personnel topics go here")
-SubForum.create(:name=>"Complaints Forum", :parent_id=>4)
-SubForum.create(:name=>"Employee Reviews", :parent_id=>4)
+SuperForum.create(:name=>"Logistics Forum", :description=>"Discuss logistics topics here")
+SuperForum.create(:name=>"Financial Forum", :description=>"Financial topics go here")
+SuperForum.create(:name=>"Employee Forum", :description=>"Personnel topics go here")
+SuperForum.create(:name=>"Lounge", :description=>"Chit Chat go here")
 
-SubForum.create(:name=>"Lounge", :description=>"Fun Discussions Go Here")
-SubForum.create(:name=>"Bender's Joke Forum", :parent_id=>7)
-SubForum.create(:name=>"Fry Reminisces", :parent_id=>7)
+SubForum.create(:name=>"Spaceship Maintanence", :description=>"Spaceship maintanence topics" , :parent_id=>1)
+SubForum.create(:name=>"Faster Delivery Routes", "Delivery Routes topics", :parent_id=>1)
+SubForum.create(:name=>"Avoiding Space Monsters", "Avoiding space monsters topics", :parent_id=>1)
+
+SubForum.create(:name=>"Weekly Financial Report", :description => "See how we're doing financially", :parent_id=>2)
+SubForum.create(:name=>"Money Saving Tips", :description => "Exchange advice on saving money", :parent_id=>2)
+
+SubForum.create(:name=>"Employee Complaints Forum", :description => "Complain about other employees here" ,:parent_id=>3)
+SubForum.create(:name=>"Employee Reviews", :description => "Review other employees here", :parent_id=>3)
+
+SubForum.create(:name=>"Bender's Joke Forum", :description => "Here all of Bender's dirty jokes",:parent_id=>4)
+SubForum.create(:name=>"Fry Reminisces", :description => "Fry tells us how the 20th century", :parent_id=>4)
 
 User.create(:username=>"philipfry", :password=>"password")
 User.create(:username=>"lela", :password=>"password")
