@@ -1,10 +1,10 @@
-<h2> Sub-Forum: <%= @superforum.name %>  </h2>
+<h2> <%= @metaforum.name %> : <%= @superforum.name %>  </h2>
 <p> <%= @superforum.description %> <p>
 
 <ul>
 <% @subforums.each do |subforum| %>
 <li>  
-<h3> <%= subforum.name %> </h3>
+<h3> <%= link_to subforum.name, sub_forum_url(subforum) %> </h3>
   <ul>
   <% @posts_hash[subforum.name].each do |post| %>
   <li>

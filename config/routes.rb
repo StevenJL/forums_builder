@@ -8,9 +8,9 @@ ForumBuilder::Application.routes.draw do
 
   resources :super_forums
 
-  resources :sub_forums
-
-  resources :post
+  resources :sub_forums do
+    resources :posts
+  end
 
 
 
