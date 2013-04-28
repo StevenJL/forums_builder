@@ -10,7 +10,7 @@
   <ul>
     <% @subforums[superforum.name].each do |subforum| %>
     <li>
-      <%= link_to subforum.name, sub_forums_url(subforum) %>
+      <%= link_to subforum.name, sub_forum_url(subforum) %>
       <%= subforum.description %>
     </li>
     <% end %>

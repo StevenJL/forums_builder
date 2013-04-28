@@ -1,0 +1,17 @@
+<h2> Sub-Forum: <%= @superforum.name %>  </h2>
+<p> <%= @superforum.description %> <p>
+
+<ul>
+<% @subforums.each do |subforum| %>
+<li>  
+<h3> <%= subforum.name %> </h3>
+  <ul>
+  <% @posts_hash[subforum.name].each do |post| %>
+  <li>
+  <%= post.title %>
+  </li>
+  <% end %>
+  </ul>
+</li>
+<% end %>
+</ul>

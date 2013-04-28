@@ -11,6 +11,7 @@ gem 'annotate'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
+gem 'debugger'
 
 
 # Gems used only for assets and not required
