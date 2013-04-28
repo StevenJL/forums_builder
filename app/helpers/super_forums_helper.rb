@@ -1,0 +1,2 @@
+module SuperForumsHelper
+end
