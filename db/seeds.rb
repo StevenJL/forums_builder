@@ -8,22 +8,19 @@ SuperForum.create(:name=>"Lounge", :description=>"Chit Chat go here")
 SubForum.create(:name=>"Spaceship Maintanence", :description=>"Spaceship maintanence topics" , :parent_id=>1)
 SubForum.create(:name=>"Faster Delivery Routes", "Delivery Routes topics", :parent_id=>1)
 SubForum.create(:name=>"Avoiding Space Monsters", "Avoiding space monsters topics", :parent_id=>1)
-
 SubForum.create(:name=>"Weekly Financial Report", :description => "See how we're doing financially", :parent_id=>2)
 SubForum.create(:name=>"Money Saving Tips", :description => "Exchange advice on saving money", :parent_id=>2)
-
 SubForum.create(:name=>"Employee Complaints Forum", :description => "Complain about other employees here" ,:parent_id=>3)
 SubForum.create(:name=>"Employee Reviews", :description => "Review other employees here", :parent_id=>3)
-
 SubForum.create(:name=>"Bender's Joke Forum", :description => "Here all of Bender's dirty jokes",:parent_id=>4)
 SubForum.create(:name=>"Fry Reminisces", :description => "Fry tells us how the 20th century", :parent_id=>4)
 
 User.create(:username=>"philipfry", :password=>"password", :email => "fry@planetexpress.com")
-User.create(:username=>"lela", :password=>"password", :email => "lela@planetexpress.com")
+User.create(:username=>"lela", :password=>"password", :email => "lela@planetexpress.com", :moderator => true)
 User.create(:username=>"amy", :password=>"password", :email => "amy@planetexpress.com")
 User.create(:username=>"bender", :password=>"password", :email => "bender@planetexpress.com")
 User.create(:username=>"zoidberg", :password=>"password", :email => "zoidberg@planetexpress.com")
-User.create(:username=>"hermes", :password=>"password", :email => "hermes@planetexpress.com")
+User.create(:username=>"hermes", :password=>"password", :email => "hermes@planetexpress.com", :admin => true)
 User.create(:username=>"farnsworth", :password=>"password", :email => "farnsworth@planetexpress.com")
 
 UserProfile.create(:user_id=>1, :name=>"Philip J. Fry", :location=>"New New York", :about_me=>"I'm from the year 2000")
@@ -34,18 +31,20 @@ UserProfile.create(:user_id=>5, :name=>"John Zoidberg", :signature=>"Why not Zoi
 UserProfile.create(:user_id=>6, :name=>"Hermes Conrad", :location=>"New Jamaica", :signature=>"Where'd my TSP reports go?")
 UserProfile.create(:user_id=>7, :name=>"Hubert Farnsworth", :location=>"New New York", :signature=>"Good news everyone")
 
-Post.create(:forum_id=>2, :user_id=>2, :title=>"We need a new FLT drive!",
+Post.create(:forum_id=>1, :user_id=>2, :title=>"We need a new FLT drive!",
   :content=>"Our FLT is about to give out.  We need a new one now!",
   :views=>2, :upvotes=>0)
-Post.create(:forum_id=>5, :user_id=>3, :title=>"Fry sucks",
+Post.create(:forum_id=>6, :user_id=>3, :title=>"Fry sucks",
   :content=>"He used up all my make-up to paint Lela's face onto a blow-up doll!",
   :views=>1, :upvotes=>1)
-Post.create(:forum_id=>8, :user_id=>5, :title=>"Robot joke",
+Post.create(:forum_id=>8, :user_id=>4, :title=>"Robot joke",
   :content=>"Why was the Robot angry?",
   :views=>1, :upvotes=>0)
 
 Reply.create(:post_id=>2, :user_id=>1, :content=>"That wasn't me! That was Bender!",
   :upvotes=>0)
 
-Reply.create(:post_id=>3, :user_id=>1, :content=>"Someone was pushing his buttons?",
+Reply.create(:post_id=>3, :user_id=>5, :content=>"Someone was pushing his buttons?",
   :upvotes=>0)
+
+
