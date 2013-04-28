@@ -6,8 +6,8 @@ SuperForum.create(:name=>"Employee Forum", :description=>"Personnel topics go he
 SuperForum.create(:name=>"Lounge", :description=>"Chit Chat go here")
 
 SubForum.create(:name=>"Spaceship Maintanence", :description=>"Spaceship maintanence topics" , :parent_id=>1)
-SubForum.create(:name=>"Faster Delivery Routes", "Delivery Routes topics", :parent_id=>1)
-SubForum.create(:name=>"Avoiding Space Monsters", "Avoiding space monsters topics", :parent_id=>1)
+SubForum.create(:name=>"Faster Delivery Routes", :description => "Delivery Routes topics", :parent_id=>1)
+SubForum.create(:name=>"Avoiding Space Monsters", :description => "Avoiding space monsters topics", :parent_id=>1)
 SubForum.create(:name=>"Weekly Financial Report", :description => "See how we're doing financially", :parent_id=>2)
 SubForum.create(:name=>"Money Saving Tips", :description => "Exchange advice on saving money", :parent_id=>2)
 SubForum.create(:name=>"Employee Complaints Forum", :description => "Complain about other employees here" ,:parent_id=>3)
@@ -46,5 +46,3 @@ Reply.create(:post_id=>2, :user_id=>1, :content=>"That wasn't me! That was Bende
 
 Reply.create(:post_id=>3, :user_id=>5, :content=>"Someone was pushing his buttons?",
   :upvotes=>0)
-
-
