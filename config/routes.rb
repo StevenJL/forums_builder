@@ -12,6 +12,8 @@ ForumBuilder::Application.routes.draw do
     resources :posts
   end
 
-
+  resources :posts do
+    resources :replies
+  end
 
 end

@@ -1,6 +1,12 @@
-<p> <%= link_to MetaForum.first.name, root_url %> > 
-     <%= link_to @parent.name, super_forum_url(@parent) %> > 
+<p> <%= link_to MetaForum.first.name, root_url %> >
+     <%= link_to @parent.name, super_forum_url(@parent) %> >
      <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %>  <p>
+
+<% if user_signed_in? %>
+  <div id='reply-sign-in'></div>
+<% else %>
+  <div id='reply-signed-in'></div>
+<% end %>
 
 <h4> <%= @post.title %> </h4>
 <%= @post.user.username %>
@@ -10,3 +16,4 @@
 <%= reply.content %> <br>
 <%= reply.user.username %>
 <% end %>
+
