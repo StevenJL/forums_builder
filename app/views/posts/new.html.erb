@@ -6,7 +6,8 @@
 
 <%= form_for(@post) do |f| %>
 Title: <br> <%= f.text_field :title %><br>
-Content: <br><%= f.text_area :content %>
+Content: <br><%= f.text_area(:content, :cols=>60, :row=>40) %>
 <input type="hidden" name="sub_forum_id" value= <%= @sub_forum.id %> />
+<br>
 <%= f.submit %>
 <% end %>
