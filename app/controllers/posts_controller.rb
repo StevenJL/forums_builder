@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @reply = Reply.new
     @sub_forum = SubForum.find(params[:sub_forum_id])
     @parent = @sub_forum.parent
     @post = Post.find(params[:id])

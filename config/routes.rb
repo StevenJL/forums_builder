@@ -13,7 +13,9 @@ ForumBuilder::Application.routes.draw do
   end
 
   resources :posts do
-    resources :replies
+    resources :replies, :only => [:edit, :destroy]
   end
+
+  match 'post/reply/new' => 'replies#create', :as => :post_new_reply, :via => :post
 
 end
