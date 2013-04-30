@@ -14,31 +14,50 @@
 <% end %>
 
 <div id="reply-form">
-<form accept-charset="UTF-8" action="http://localhost:3000/post/reply/new" class="new_reply" id="new_reply" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="neScB2rdwZjYS2Vfk+xAtp+wLW+YMWbsOdCGoPjdFmM="></div>
+  <form action="http://localhost:3000/post/reply/new" id='new-reply=form'>
+    <label for="reply_content">Message</label><br>
+    <textarea cols='60' id="reply_content" name='reply[content]' rows="20"></textarea><br>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+
+
+<!-- <form action="http://localhost:3000/post/reply/new" id="new_reply" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="neScB2rdwZjYS2Vfk+xAtp+wLW+YMWbsOdCGoPjdFmM="></div>
   <label for="reply_content">Message</label><br>
   <textarea cols="60" id="reply_content" name="reply[content]" row="20" rows="20"></textarea>
   <input type="hidden" name="post_id" value="1"><br>
   <input id='submit-button' name="commit" type="submit" value="Create Reply">
-</form>
-</div>
-
+</form> -->
 
 <hr>
-<% @replies.each do |reply| %>
-<%= reply.content %> <br>
-<%= reply.user.username %>
-<% end %>
+<div id='replies'>
+  <% @replies.each do |reply| %>
+  <%= reply.content %> <br>
+  <%= reply.user.username %>
+  <% end %>
+</div>
 
 <script>
 $(document).ready(function() {
   $('#reply-form').hide()
-  $('#reply-button').on('click', function() {
-    $('#reply-button').text('Hide Text Field')
-    $("#reply-form").toggle()
-  });
-  $('#submit-button').on('click', function(){
 
-  })
+  $('#reply-button').on('click', function() {
+    $("#reply-form").show()
+    $('#reply-button').hide()
+  });
+
+  // $('#submit-button').on('click', function(){
+  //   var $form = $(this);
+  //   var term = $form.find('input[name="reply[content]"]').val(),
+  //   var url = $form.attr('action');
+
+  //   var posting = $.post(url, { reply[content] : term });
+
+  //   posting.done(function(data){
+  //     var content = $(data).find('#content');
+  //     $("#result").empty().append(content);
+  //   });
+  // });
 
 });
 </script>
