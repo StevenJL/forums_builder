@@ -1,7 +1,11 @@
-<h4> <%= link_to @metaforum.name, root_url %> > <%= link_to @parent.name, super_forum_url(@parent) %> > 
+<h4> <%= link_to @metaforum.name, root_url %> > <%= link_to @parent.name, super_forum_url(@parent) %> >
 <%= @subforum.name %> </h4>
 
+<% if user_signed_in? %>
 <%= link_to "New Post", new_sub_forum_post_url(@subforum) %>
+<% else %>
+<%= link_to "Login to Post", new_user_session_url %>
+<% end %>
 
 <ul>
 <% @posts.each do |post| %>

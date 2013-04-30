@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+  def index
+  end
+
   def show
     @sub_forum = SubForum.find(params[:sub_forum_id])
     @parent = @sub_forum.parent
