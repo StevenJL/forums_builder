@@ -3,7 +3,7 @@
      <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %>  <p>
 
 <h4> <%= @post.title %> </h4>
-<%= @post.user.username %>
+<%= link_to @post.user.username, user_url(@post.user)%>
 <p> <%= @post.content %> </p><br>
 
 
@@ -33,7 +33,7 @@
 <div id='replies'>
   <% @replies.each do |reply| %>
   <%= reply.content %> <br>
-  <%= reply.user.username %>
+  <%= link_to reply.user.username, user_url(reply.user) %>
   <% end %>
 </div>
 

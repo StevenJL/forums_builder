@@ -9,13 +9,15 @@
 <body>
 <div id="container">
   <div id="user_nav">
+    <%= link_to "Forum Home", root_url %>
     <% if user_signed_in?%>
       Signed in as <%= current_user.email %>
       <%= link_to "Logout", destroy_user_session_url, :method => :delete %>
     <% else %>
       <%= link_to "Register", new_user_registration_url %> or <%= link_to "Login", new_user_session_url %> 
     <% end %>
-
+  </div>
+</div>
 <%= yield %>
 
 </body>
