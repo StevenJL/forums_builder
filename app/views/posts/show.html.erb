@@ -2,21 +2,25 @@
      <%= link_to @parent.name, super_forum_url(@parent) %> >
      <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %>  <p>
 
-
-<div id="post">
 <h4> <%= @post.title %> </h4>
 <%= @post.user.username %>
-<p> <%= @post.content %> </p>
-<br>
-<% if user_signed_in? %>
-  <%= link_to "Reply to Post", new_post_reply_url(@post), id: "new-reply", remote: true %>
-<% else %>
-  <%= link_to "Login to Reply", new_user_session_url %>
-<% end %>
-</div>
-<br>
+<p> <%= @post.content %> </p><br>
+<button id="reply-button">Reply to Post</button>
+<div id="reply-form"></div>
+
+
 <hr>
 <% @replies.each do |reply| %>
 <%= reply.content %> <br>
 <%= reply.user.username %>
 <% end %>
+
+<script>
+$(document).ready(function() {
+  $('#reply-button').on('click', function() {
+    var form = $("<form action='/posts/"+ <%= @post.id %> + "/replies' method='post'><textarea name='content' rows='7' cols='50' > Enter Reply</textarea><br><input type='submit'></form>")
+    $("#reply-form").html(form)
+    $("#reply-button").remove()
+  });
+});
+</script>
