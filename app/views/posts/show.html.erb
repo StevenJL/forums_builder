@@ -2,18 +2,21 @@
      <%= link_to @parent.name, super_forum_url(@parent) %> >
      <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %>  <p>
 
-<% if user_signed_in? %>
-  <div id='reply-sign-in'></div>
-<% else %>
-  <div id='reply-signed-in'></div>
-<% end %>
 
+<div id="post">
 <h4> <%= @post.title %> </h4>
 <%= @post.user.username %>
 <p> <%= @post.content %> </p>
+<br>
+<% if user_signed_in? %>
+  <%= link_to "Reply to Post", new_post_reply_url(@post), id: "new-reply", remote: true %>
+<% else %>
+  <%= link_to "Login to Reply", new_user_session_url %>
+<% end %>
+</div>
+<br>
 <hr>
 <% @replies.each do |reply| %>
 <%= reply.content %> <br>
 <%= reply.user.username %>
 <% end %>
-
