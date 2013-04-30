@@ -1,14 +1,22 @@
 class RepliesController < ApplicationController
 
   def create
-    user_id = current_user.id
-    post_id = params[:post_id]
-    content = params[:reply][:content]
-    Reply.create(:post_id=>post_id,:user_id=>user_id, :content=>content,
+
+    p user_id = current_user.id
+    p post_id = params[:post_id]
+    p content = params[:content]
+    @reply = Reply.new(:post_id=>post_id,:user_id=>user_id, :content=>content,
           :upvotes=>0)
-    @post = Post.find(post_id)
-    @subforum = @post.forum
-    redirect_to sub_forum_post_url(@subforum, @post)
+    # send_back = {reply=>@reply,user=>@user}
+    if @reply.save
+      respond_to do |format|
+        format.json { render :json => @reply }
+        format.html { render :html => @reply }
+      end
+    else
+      render :json => @reply.errors 
+    end
+
   end
 
 end
