@@ -1,0 +1,17 @@
+<p> <%= link_to MetaForum.first.name, root_url %> >
+     <%= link_to @parent.name, super_forum_url(@parent) %> >
+     <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %>  <p>
+
+<h4> <%= @post.title %> </h4>
+<%= @post.user.username %>
+<p> <%= @post.content %> </p><br>
+<button id="reply-button">Reply to Post</button>
+<div id="reply-form"></div>
+
+
+<hr>
+<% @replies.each do |reply| %>
+<%= reply.content %> <br>
+<%= reply.user.username %>
+<% end %>
+

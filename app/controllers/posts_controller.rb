@@ -16,4 +16,14 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def create
+    sub_forum_id = params[:sub_forum_id]
+    user_id = current_user.id
+    title = params[:post][:title]
+    content = params[:post][:content]
+    @post = Post.create(:user_id=>user_id, :forum_id=>sub_forum_id, 
+      :title=>title, :content=>content, :views=>1, :upvotes=>0)
+    redirect_to sub_forum_post_url(@post)
+  end
+
 end
