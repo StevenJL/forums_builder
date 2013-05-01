@@ -1,37 +1,38 @@
 <div class="container">
   <div class="row">
-    <div class="span3" style="height: 100px; width: 100px; border-style:solid;">Profile</div>
-    <div class="span9" style="height: 100px; border-style:solid;">
-      
+    <div class="span3" style="height: 100px; width: 100px;">
+      <div id="post-profile">
+        <%= link_to @post.user.username, user_url(@post.user)%>
+      </div>
+    </div>
+    <div class="span9">
+      <div class='post-container container-fluid'>
+        <div id="post-title">
+          <%= @post.title %>
+        </div>
+        <div id='post-content'>
+          <%= @post.content %>
+        </div>
+    </div>
+
+    <div class='reply-button-form-div'>
+      <div class='reply-button-div'>
+        <% if user_signed_in? %>
+        <button class="btn btn-mini reply-button">Reply</button>
+        <% else %>
+        <%= link_to "Login to Reply", new_user_session_url %>
+        <% end %>
+      </div>
+      <form action="/post/reply/new" method="post">
+        <textarea class="reply-content" name='reply[content]'></textarea><br>
+        <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
+        <input type="hidden" name="reply[reply_id]" value= nil >
+        <input class="btn btn-success submit-button" type="submit"/>
+      </form>
+    </div>
+
     </div>
   </div>
 </div>
 
 
-<div id='post-container clear-fix' class='container-fluid'>
-  <div id="post-title">
-    <%= @post.title %>
-  </div>
-  <div id="post-profile">
-    <%= link_to @post.user.username, user_url(@post.user)%>
-  </div>
-  <div id='post-content'>
-    <%= @post.content %>
-  </div>
-
-  <div class='reply-button-div'>
-    <% if user_signed_in? %>
-    <button class="btn btn-mini reply-button">Reply</button>
-    <% else %>
-    <%= link_to "Login to Reply", new_user_session_url %>
-    <% end %>
-  </div>
-
-  <form action="/post/reply/new" method="post">
-    <textarea class="reply-content" name='reply[content]'></textarea><br>
-    <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
-    <input type="hidden" name="reply[reply_id]" value= nil >
-    <input class="btn btn-success submit-button" type="submit"/>
-  </form>
-
-</div>
