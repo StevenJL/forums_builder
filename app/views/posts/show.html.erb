@@ -2,31 +2,15 @@
      <%= link_to @parent.name, super_forum_url(@parent) %> >
      <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %>  <p>
 
-<h4> <%= @post.title %> </h4>
-<%= link_to @post.user.username, user_url(@post.user)%>
-<p> <%= @post.content %> </p><br>
-
-<% if user_signed_in? %>
-<button id="reply-button">Reply to Post</button>
-<% else %>
-<%= link_to "Login to Reply", new_user_session_url %>
-<% end %>
-
-<div id="reply-form">
-  <form id='new-reply=form'>
-    <label for="reply_content">Message</label><br>
-    <textarea cols='60' id="reply-content" name='reply[content]' rows="20"></textarea><br>
-    <input type="button" id="submit-button" value="Submit" />
-  </form>
-</div>
+<%= render partial: 'toppost' %>
 
 <hr>
 <div id='replies'>
   <% @replies.each do |reply| %>
-  <%= reply.content %> <br>
-  <%= link_to reply.user.username, user_url(reply.user) %>
+    <%= render partial: 'reply', :locals => { :reply => reply } %>
   <% end %>
 </div>
+
 
 <script>
 var userJson = <%= current_user.to_json.html_safe %>
