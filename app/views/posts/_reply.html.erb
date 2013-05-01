@@ -3,15 +3,15 @@
   <div class='reply-content'><%= reply.content %> </div>  
   <div class='reply-button-div'>
     <% if user_signed_in? %>
-    <button class="reply-button">Reply</button>
+    <button class="btn btn-mini reply-button">Reply</button>
     <% end %>
   </div>
 
   <form action="/post/reply/new" method="post">
-    <textarea cols='60' class="reply-content" name='reply[content]' rows="20"></textarea><br>
+    <textarea class="reply-content" name='reply[content]'></textarea><br>
     <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
     <input type="hidden" name="reply[reply_id]" value= <%= reply.id %>>
-    <input class="submit-button" type="submit"/>
+    <input class="btn btn-success submit-button" type="submit"/>
   </form>
 
   <% nested_replies = replies.select {|innerreply| innerreply.reply_id == reply.id} %>

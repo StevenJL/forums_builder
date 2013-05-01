@@ -2,12 +2,16 @@
      <%= link_to @parent.name, super_forum_url(@parent) %> > 
      <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %>  <p>
 
+<div id="new-post-title">
 <h4> Create a New Post </h4>
+</div>
 
-<%= form_for(@post) do |f| %>
-Title: <br> <%= f.text_field :title %><br>
-Content: <br><%= f.text_area(:content, :cols=>60, :row=>40) %>
-<input type="hidden" name="sub_forum_id" value= <%= @sub_forum.id %> />
-<br>
-<%= f.submit %>
-<% end %>
+<div id="new-post-form">
+  <%= form_for(@post) do |f| %>
+  Title: <br> <%= f.text_field :title %><br>
+  Content: <br><textarea id="post_content" name="post[content]"></textarea>
+  <input type="hidden" name="sub_forum_id" value= <%= @sub_forum.id %> />
+  <br>
+  <%= f.submit %>
+  <% end %>
+</div>
