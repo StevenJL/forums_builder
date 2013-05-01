@@ -16,7 +16,8 @@
 
   <div>
     <% reply.replies do |inner_reply| %>
-      <%= render partial: 'reply', :locals => { :reply => inner_reply } %>
+      <%= render partial: 'innerreply', 
+        :locals => { :reply => inner_reply } %>
     <% end %>
   </div>
 

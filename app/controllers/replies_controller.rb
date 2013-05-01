@@ -14,9 +14,8 @@ class RepliesController < ApplicationController
     post_id, reply_id = reply_post_parse(params[:post_reply_id])
     user_id = current_user.id
     content = params[:content]
-    @reply = Reply.new(:post_id=>post_id,:user_id=>user_id, :content=>content,
+    @reply = Reply.new(:post_id=>post_id, :reply_id=>reply_id, :user_id=>user_id, :content=>content,
           :upvotes=>0)
-    # send_back = {reply=>@reply,user=>@user}
     if @reply.save
       respond_to do |format|
         format.json { render :json => @reply }

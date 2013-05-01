@@ -34,7 +34,8 @@ $(document).ready(function() {
         var content = $(this).parent().children('textarea').val()
         $(this).parent().children('textarea').val("")
 
-        var success_callback = function(data){}
+        var success_callback = function(data){
+        };
 
         $.ajax({
           type: "POST",
@@ -54,13 +55,13 @@ $(document).ready(function() {
   //   var post_id = <%= @post.id %>
   //   var content = $("#reply-content").val()
 
-  //   var success_callback = function(data){
-  //     var content = data['content'];
-  //     var user_id = data['user_id'];
-  //     var user_link = "<a href=/users/"+current_user_id+">"+current_user_name+"</a>"
-  //     var reply_post = $("<div>"+user_link+content+"</div>")
-  //     $("#replies").append(reply_post);
-  //   };
+    // var success_callback = function(data){
+    //   var content = data['content'];
+    //   var user_id = data['user_id'];
+    //   var user_link = "<a href=/users/"+current_user_id+">"+current_user_name+"</a>"
+    //   var reply_post = $("<div>"+user_link+content+"</div>")
+    //   $("#replies").append(reply_post);
+    // };
 
   // });
   // }
