@@ -1,7 +1,7 @@
 class RepliesController < ApplicationController
 
   def create
-
+    p params
     p user_id = current_user.id
     p post_id = params[:post_id]
     p content = params[:content]
