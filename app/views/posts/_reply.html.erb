@@ -1,22 +1,40 @@
-<div class='reply-container'>
-  <div class='reply-profile'><%= link_to reply.user.username, user_url(reply.user) %></div>
-  <div class='reply-content'><%= reply.content %> </div>  
-  <div class='reply-button-div'>
-    <% if user_signed_in? %>
-    <button class="btn btn-mini reply-button">Reply</button>
-    <% end %>
+<div class="container">
+  <div class="row">
+
+    <div class="span1">
+      <div class="reply-profile">
+        <%= link_to reply.user.username, user_url(reply.user)%>
+      </div>
+    </div>
+
+    <div class="span7">
+
+      <div class='reply-container container-fluid'>
+        <div class='reply-content'>
+          <%= reply.content %>
+        </div>
+      </div>
+
+    <div class='reply-button-form-div'>
+      <div class='reply-button-div'>
+        <% if user_signed_in? %>
+        <button class="btn btn-mini reply-button">Reply</button>
+        <% end %>
+      </div>
+      <form action="/post/reply/new" method="post">
+        <textarea class="reply-content" name='reply[content]'></textarea><br>
+        <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
+        <input type="hidden" name="reply[reply_id]" value= <%= reply.id %>>
+        <input class="btn btn-success submit-button" type="submit"/>
+      </form>
+    </div>
+
+        <% nested_replies = replies.select {|innerreply| innerreply.reply_id == reply.id} %>
+        <% nested_replies.each do |reply| %>
+          <%= render partial: 'reply', :locals => { :reply => reply, :replies => @replies} %>
+        <% end %>
+
+    </div>
   </div>
-
-  <form action="/post/reply/new" method="post">
-    <textarea class="reply-content" name='reply[content]'></textarea><br>
-    <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
-    <input type="hidden" name="reply[reply_id]" value= <%= reply.id %>>
-    <input class="btn btn-success submit-button" type="submit"/>
-  </form>
-
-  <% nested_replies = replies.select {|innerreply| innerreply.reply_id == reply.id} %>
-  <% nested_replies.each do |reply| %>
-    <%= render partial: 'reply', :locals => { :reply => reply, :replies => @replies} %>
-  <% end %>
-
 </div>
+
