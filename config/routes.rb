@@ -1,5 +1,7 @@
 ForumBuilder::Application.routes.draw do
 
+  match 'post/reply/new' => 'replies#create', :as => :post_new_reply, :via => :post
+
   devise_for :users
 
   root :to => "meta_forums#index"
@@ -17,7 +19,5 @@ ForumBuilder::Application.routes.draw do
   resources :posts do
     resources :replies, :only => [:edit, :destroy]
   end
-
-  match 'post/reply/new' => 'replies#create', :as => :post_new_reply, :via => :post
 
 end

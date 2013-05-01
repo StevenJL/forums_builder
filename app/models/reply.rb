@@ -6,4 +6,6 @@ class Reply < ActiveRecord::Base
   belongs_to :reply
   has_many :replies
 
+  validates :content, :user_id, presence: true
+
 end

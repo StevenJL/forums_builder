@@ -8,10 +8,11 @@
     <% end %>
   </div>
 
-  <form class='reply-post-form' data-id = "reply_id <%= @post.id %>" >
-    <label for="reply_content">Message</label><br>
+  <form action="/post/reply/new" method="post">
     <textarea cols='60' class="reply-content" name='reply[content]' rows="20"></textarea><br>
-    <input type="submit" class="submit-button" value="Submit" />
+    <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
+    <input type="hidden" name="reply[reply_id]" value= <%= reply.id %>>
+    <input type="submit"/>
   </form>
 
 </div>
