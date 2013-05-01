@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @parent = @sub_forum.parent
     @post = Post.find(params[:id])
     @replies = @post.replies
+    @directreplies = @replies.select {|reply| reply.reply_id == 0 || reply.reply_id.nil? }
   end
 
   def new
