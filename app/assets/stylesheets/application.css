@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+.signed-in-as-email{
+float: none;
+padding: 10px 15px 10px;  
+}
