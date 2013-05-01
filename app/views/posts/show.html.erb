@@ -2,6 +2,10 @@
      <%= link_to @parent.name, super_forum_url(@parent) %> >
      <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %>  <p>
 
+<% if @current_user.nil? %>
+<% @current_user = User.new %>
+<% end %>
+
 <%= render partial: 'toppost' %>
 
 <hr>
@@ -14,38 +18,38 @@
 
 <script>
 
-var userJson = <%= current_user.to_json.html_safe %>
+// var userJson = <%= current_user.to_json.html_safe %>
 
-$(document).ready(function() {
-  if (userJson){
-    var current_user_name = userJson['username']
-    var current_user_id = userJson['id']    
-  }
+// $(document).ready(function() {
+//   if (userJson){
+//     var current_user_name = userJson['username']
+//     var current_user_id = userJson['id']    
+//   }
 
-  $('.reply-post-form').hide()
+//   $('.reply-post-form').hide()
 
-  $('.reply-button').on('click', function() {
-    $(this).parent().next().show()
-    $(this).hide()
-    $(this).parent().next().children('.submit-button').on('click',
-      function(){
-        console.log('clicked!')
-        var post_reply_id = $(this).parent().attr('data-id')
-        var content = $(this).parent().children('textarea').val()
-        $(this).parent().children('textarea').val("")
+//   $('.reply-button').on('click', function() {
+//     $(this).parent().next().show()
+//     $(this).hide()
+    // $(this).parent().next().children('.submit-button').on('click',
+    //   function(){
+    //     console.log('clicked!')
+    //     var post_reply_id = $(this).parent().attr('data-id')
+    //     var content = $(this).parent().children('textarea').val()
+    //     $(this).parent().children('textarea').val("")
 
-        var success_callback = function(data){
-        };
+    //     var success_callback = function(data){
+    //     };
 
-        $.ajax({
-          type: "POST",
-          url: "/post/reply/new",
-          data: {'content' : content, 'post_reply_id' : post_reply_id  },
-          success: success_callback
-        })
+    //     $.ajax({
+    //       type: "POST",
+    //       url: "/post/reply/new",
+    //       data: {'content' : content, 'post_reply_id' : post_reply_id  },
+    //       success: success_callback
+    //     })
 
-      })
-  })
+    //   })
+  // })
 
 
   //   $('#reply-button').hide()
@@ -69,6 +73,5 @@ $(document).ready(function() {
 
 
 
-});
+// });
 </script>
-

@@ -13,10 +13,12 @@
     <% end %>
   </div>
 
-  <form class='reply-post-form' data-id="post_id <%= @post.id %>" >
-    <label for="reply_content">Message</label><br>
-    <textarea cols='60' class="reply-content" name='content' rows="20"></textarea><br>
-    <input type="button" class="submit-button" value="Submit" />
+  <form action="/post/reply/new" method="post">
+    <textarea cols='60' class="reply-content" name='reply[content]' rows="20"></textarea><br>
+    <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
+    <input type="hidden" name="reply[reply_id]" value= nil >
+    <input type="hidden" name="reply[user_id]" value= <%= @current_user.id %> >
+    <input type="submit"/>
   </form>
 
 </div>
