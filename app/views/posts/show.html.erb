@@ -29,9 +29,20 @@ $(document).ready(function() {
     $(this).hide()
     $(this).parent().next().children('.submit-button').on('click',
       function(){
+        console.log('clicked!')
         var post_reply_id = $(this).parent().attr('data-id')
         var content = $(this).parent().children('textarea').val()
         $(this).parent().children('textarea').val("")
+
+        var success_callback = function(data){}
+
+        $.ajax({
+          type: "POST",
+          url: "/post/reply/new",
+          data: {'content' : content, 'post_reply_id' : post_reply_id  },
+          success: success_callback
+        })
+
       })
   })
 
@@ -50,12 +61,7 @@ $(document).ready(function() {
   //     var reply_post = $("<div>"+user_link+content+"</div>")
   //     $("#replies").append(reply_post);
   //   };
-  //   $.ajax({
-  //     type: "POST",
-  //     url: "/post/reply/new",
-  //     data: {'content' : content, 'post_id' : post_id  },
-  //     success: success_callback
-  //   })
+
   // });
   // }
 

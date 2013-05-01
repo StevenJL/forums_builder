@@ -1,10 +1,19 @@
 class RepliesController < ApplicationController
 
+# {"content"=>"Get me out of here!", "post_reply_id"=>"reply_id 4", "controller"=>"replies", "action"=>"create"}
+
+  def reply_post_parse(string)
+    if string.include?('post')
+      [string.split().last , nil]
+    elsif string.include?('reply')
+      [nil, string.split().last]
+    end
+  end
+
   def create
-    p params
-    p user_id = current_user.id
-    p post_id = params[:post_id]
-    p content = params[:content]
+    post_id, reply_id = reply_post_parse(params[:post_reply_id])
+    user_id = current_user.id
+    content = params[:content]
     @reply = Reply.new(:post_id=>post_id,:user_id=>user_id, :content=>content,
           :upvotes=>0)
     # send_back = {reply=>@reply,user=>@user}
