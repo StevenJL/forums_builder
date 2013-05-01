@@ -1,10 +1,9 @@
 <div class='reply-container'>
-  <div class='reply-content'><%= reply.content %> </div>
-  <div class='reply-profile'><%= link_to reply.user.username, user_url(reply.user) %>
-  </div>
+  <div class='reply-profile'><%= link_to reply.user.username, user_url(reply.user) %></div>
+  <div class='reply-content'><%= reply.content %> </div>  
   <div class='reply-button-div'>
     <% if user_signed_in? %>
-    <button class="reply-button">Reply to Post</button>
+    <button class="reply-button">Reply</button>
     <% end %>
   </div>
 
@@ -12,7 +11,7 @@
     <textarea cols='60' class="reply-content" name='reply[content]' rows="20"></textarea><br>
     <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
     <input type="hidden" name="reply[reply_id]" value= <%= reply.id %>>
-    <input type="submit"/>
+    <input class="submit-button" type="submit"/>
   </form>
 
   <% nested_replies = replies.select {|innerreply| innerreply.reply_id == reply.id} %>

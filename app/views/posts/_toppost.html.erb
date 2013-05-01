@@ -1,13 +1,17 @@
-<div id='post-container'>
-  <div id='post-content'>
+<div id='post-container clear-fix'>
+  <div id="post-title">
     <%= @post.title %>
+  </div>
+  <div id="post-profile">
     <%= link_to @post.user.username, user_url(@post.user)%>
+  </div>
+  <div id='post-content'>
     <%= @post.content %>
   </div>
 
   <div class='reply-button-div'>
     <% if user_signed_in? %>
-    <button class="reply-button">Reply to Post</button>
+    <button class="reply-button">Reply</button>
     <% else %>
     <%= link_to "Login to Reply", new_user_session_url %>
     <% end %>
@@ -17,7 +21,7 @@
     <textarea cols='60' class="reply-content" name='reply[content]' rows="20"></textarea><br>
     <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
     <input type="hidden" name="reply[reply_id]" value= nil >
-    <input type="submit"/>
+    <input class="submit-button" type="submit"/>
   </form>
 
 </div>

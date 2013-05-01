@@ -1,3 +1,61 @@
-textarea{
+textarea {
   height: 85px;
+}
+
+.reply-container{
+  position: relative;
+  left: 20px;
+}
+
+
+.reply-button
+{
+   font-size:9px;
+   font-family:Verdana,sans-serif;
+   font-weight:bold;
+   color:#888888;
+   width:45px;
+   background-color:#EEEEEE;
+   border-style:solid;
+   border-color:#BBBBBB;
+   border-width:1px;
+}
+.submit-button
+{
+   font-size:10px;
+   font-family:Verdana,sans-serif;
+   font-weight:bold;
+   color:#FFFFFF;
+   width:60px;
+   background-color:#33CC33;
+   border-style:solid;
+   border-color:#BBBBBB;
+   border-width:1px;
+}
+
+#post-container
+{
+  border:1px solid;
+  padding:3px;
+}
+
+#post-title
+{
+  background-color: #D0D0D0 ;
+  text-align: center;
+}
+
+#post-profile{
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+}
+
+.clearfix:after {
+   visibility: hidden;
+   display: block;
+   font-size: 0;
+   content: " ";
+   clear: both;
+   height: 0;
 }
