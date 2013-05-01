@@ -6,5 +6,3 @@ Features:
 * Reddit-style threading as opposed strict chronological threading in old forums.
 
 * Posts/Replies can have upvotes.
-
-* TESTING
