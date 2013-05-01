@@ -5,19 +5,18 @@
     <%= @post.content %>
   </div>
 
-  <div id='reply-button'>
+  <div class='reply-button'>
     <% if user_signed_in? %>
-    <button id="reply-button">Reply to Post</button>
+    <button class="reply-button">Reply to Post</button>
     <% else %>
     <%= link_to "Login to Reply", new_user_session_url %>
     <% end %>
   </div>
 
-  <div id="reply-form">
-    <form id='new-reply-form'>
-      <label for="reply_content">Message</label><br>
-      <textarea cols='60' id="reply-content" name='reply[content]' rows="20"></textarea><br>
-      <input type="button" id="submit-button" value="Submit" />
-    </form>
-  </div>
+  <form class='reply-post-form'>
+    <label for="reply_content">Message</label><br>
+    <textarea cols='60' id="reply-content" name='content' rows="20"></textarea><br>
+    <input type="button" id="submit-button" value="Submit" />
+  </form>
+
 </div>

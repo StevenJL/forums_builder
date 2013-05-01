@@ -1,2 +1,17 @@
-<%= reply.content %> <br>
-<%= link_to reply.user.username, user_url(reply.user) %>
+<div class='reply-container'>
+  <div class='reply-content'><%= reply.content %> </div>
+  <div class='reply-profile'><%= link_to reply.user.username, user_url(reply.user) %>
+  </div>
+  <div class='reply-button'>
+    <% if user_signed_in? %>
+    <button class="reply-button">Reply to Post</button>
+    <% end %>
+  </div>
+
+  <form class='reply-post-form'>
+    <label for="reply_content">Message</label><br>
+    <textarea cols='60' id="reply-content" name='content' rows="20"></textarea><br>
+    <input type="button" id="submit-button" value="Submit" />
+  </form>
+
+</div>
