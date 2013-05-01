@@ -5,7 +5,7 @@
     <%= @post.content %>
   </div>
 
-  <div class='reply-button'>
+  <div class='reply-button-div'>
     <% if user_signed_in? %>
     <button class="reply-button">Reply to Post</button>
     <% else %>
@@ -15,8 +15,8 @@
 
   <form class='reply-post-form'>
     <label for="reply_content">Message</label><br>
-    <textarea cols='60' id="reply-content" name='content' rows="20"></textarea><br>
-    <input type="button" id="submit-button" value="Submit" />
+    <textarea cols='60' class="reply-content" name='content' rows="20"></textarea><br>
+    <input type="button" class="submit-button" value="Submit" />
   </form>
 
 </div>

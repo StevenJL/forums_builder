@@ -13,36 +13,50 @@
 
 
 <script>
+
 var userJson = <%= current_user.to_json.html_safe %>
+
 $(document).ready(function() {
-  var current_user_name = userJson['username']
-  var current_user_id = userJson['id']
-  $('#reply-form').hide()
+  if (userJson){
+    var current_user_name = userJson['username']
+    var current_user_id = userJson['id']    
+  }
 
-  $('#reply-button').on('click', function() {
-    $("#reply-form").show()
-    $('#reply-button').hide()
-    $('#submit-button').on('click', function(){
-    $("#reply-content").empty()
-    var $form = $(this);
-    var post_id = <%= @post.id %>
-    var content = $("#reply-content").val()
+  $('.reply-post-form').hide()
 
-    var success_callback = function(data){
-      var content = data['content'];
-      var user_id = data['user_id'];
-      var user_link = "<a href=/users/"+current_user_id+">"+current_user_name+"</a>"
-      var reply_post = $("<div>"+user_link+content+"</div>")
-      $("#replies").append(reply_post);
-    };
-    $.ajax({
-      type: "POST",
-      url: "/post/reply/new",
-      data: {'content' : content, 'post_id' : post_id  },
-      success: success_callback
-    })
-  });
-  });
+  $('.reply-button').on('click', function() {
+    $(this).parent().next().show()
+    $(this).hide()
+    $(this).parent().next().children('.submit-button').on('click',
+      function(){
+        var post_id = <%= @post.id %>
+      })
+  })
+
+
+  //   $('#reply-button').hide()
+  //   $('#submit-button').on('click', function(){
+  //   $("#reply-content").empty()
+  //   var $form = $(this);
+  //   var post_id = <%= @post.id %>
+  //   var content = $("#reply-content").val()
+
+  //   var success_callback = function(data){
+  //     var content = data['content'];
+  //     var user_id = data['user_id'];
+  //     var user_link = "<a href=/users/"+current_user_id+">"+current_user_name+"</a>"
+  //     var reply_post = $("<div>"+user_link+content+"</div>")
+  //     $("#replies").append(reply_post);
+  //   };
+  //   $.ajax({
+  //     type: "POST",
+  //     url: "/post/reply/new",
+  //     data: {'content' : content, 'post_id' : post_id  },
+  //     success: success_callback
+  //   })
+  // });
+  // }
+
 
 
 
