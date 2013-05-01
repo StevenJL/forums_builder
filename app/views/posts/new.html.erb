@@ -7,11 +7,12 @@
 </div>
 
 <div id="new-post-form">
-  <%= form_for(@post) do |f| %>
-  Title: <br> <%= f.text_field :title %><br>
-  Content: <br><textarea id="post_content" name="post[content]"></textarea>
-  <input type="hidden" name="sub_forum_id" value= <%= @sub_forum.id %> />
-  <br>
-  <%= f.submit %>
-  <% end %>
+  <form action="/posts" class="new_post" id="new_post" method="post">
+    Title: <br> <input id="post_title" name="post[title]" size="30" type="text"><br>
+    Content: <br><textarea id="post_content" name="post[content]"></textarea><br>
+    <input type="hidden" name="sub_forum_id" value="4">
+    <br>
+    <input name="commit" type="submit" value="Create Post">
+  </form>
 </div>
+
