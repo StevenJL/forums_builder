@@ -2,12 +2,13 @@
   <div class="row">
     <div class="span2">
       <div id="post-profile">
+        <%= image_tag @post.user.user_profile.avatar.url(:thumb) %><br>
         <%= link_to @post.user.username, user_profile_url(@post.user)%>
       </div>
     </div>
     <div class="span9">
       <div class='post-container'>
-        <div id="post-title">
+        <div id="post-title">  
           <%= @post.title %>
         </div>
         <div id='post-content'>

@@ -1,5 +1,9 @@
 <h4> <%= @user.username %>'s profile </h4>
 
+<% if current_user.id == @user.id %>
+<%= link_to "Edit your profile", edit_user_profile_url(@user) %>
+<% end %>
+<br>
 UserName: <%= @user.username %><br>
 <%= image_tag @user_profile.avatar.url(:big) %><br>
 Email: <%= @user.email %><br>
