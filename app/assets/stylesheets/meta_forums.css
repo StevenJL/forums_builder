@@ -17,7 +17,9 @@ body{
 
 #index-nav-content
 {
- width: 80%;
- margin: auto;
- margin-top: auto;
+  position: relative;
+  height: auto;
+  width: auto;
+  margin: auto;
+  margin-top: auto;
 }

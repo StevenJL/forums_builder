@@ -2,6 +2,8 @@ ForumBuilder::Application.routes.draw do
 
   match 'post/reply/new' => 'replies#create', :as => :post_new_reply, :via => :post
 
+  match 'admintools' => 'admin#tools'
+
   devise_for :users
 
   root :to => "meta_forums#index"
