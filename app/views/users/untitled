@@ -1,2 +1,0 @@
-Edit <%= @user.username %>'s Profile
-
