@@ -1,11 +1,24 @@
 <div class="container-fluid main-container">
+  
   <div class="row-fluid">
+    
     <div class="forum-nav-panel">
         <h4><%= link_to @metaforum.name, root_url %> > <%= link_to @sub_forum.parent.name, super_forum_url(@sub_forum.parent) %> >
         <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %></h4>
     </div>
 
-    <%= render partial: 'toppost' %>
+  <%= render partial: 'toppost' %>
+
+  <div class="row">
+    <div class="span10 offset1">
+      <hr>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="span2">fjkdajfdkl</div>
+    <div class="span9">fjkdajfdklafjkdal</div>
+</div>
 
     <div id='replies'>
       <% @directreplies.each do |reply| %>

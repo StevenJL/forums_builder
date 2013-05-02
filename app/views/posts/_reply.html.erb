@@ -1,21 +1,22 @@
 <!-- <div class="container"> -->
   <!-- <div class="row"> -->
 
-    <div class="span1">
-      <div class="reply-profile" align="center">
+    <div class="span2">
+      <!-- <div class="reply-profile" align="center"> -->
         <%= image_tag reply.user.user_profile.avatar.url(:tiny) %><br>
         <%= link_to reply.user.username, user_profile_url(reply.user)%>
-      </div>
+      <!-- </div> -->
     </div>
 
     <div class="span7">
 
-      <div class='reply-container'>
-        <div class='reply-content'>
+      <!-- <div class='reply-container'> -->
+        <!-- <div class='reply-content'> -->
           <%= reply.content %>
-        </div>
-      </div>
-
+        <!-- </div> -->
+      <!-- </div> -->
+    </div>
+    
     <div class='reply-button-form-div'>
       <div class='reply-button-div'>
         <% if user_signed_in? %>
