@@ -1,8 +1,12 @@
-<h1><%= @meta_forum.name %> Forums </h1>
-<h2> <%= @meta_forum.description %> </h2>
+<div id="index-nav-panel">
+  <div id="index-nav-content">
+    <h3><%= @meta_forum.name %> Forums </h3>
+    <h4><%= @meta_forum.description %> </h4>
+  </div>
+</div>
 
 <% @superforums.each do |superforum| %>
-  Forum Name: <%= link_to superforum.name , super_forum_url(superforum) %>
+  Forum Name: <%= superforum.name %>
   <br>
   Forum Description: <%= superforum.description %>
   <br>

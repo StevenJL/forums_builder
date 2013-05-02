@@ -1,14 +1,24 @@
 #forum-nav-panel
 {
+  margin: auto;
   background-color: #E6E6E6;
   height: 30px;
   width: 70%;
-  align: center;
+  border-radius: 1em;
+  padding: 5px;
+}
+
+#nav-content
+{
+ width: 80%;
+ margin: auto;
+ margin-top: auto;
 }
 
 .new-post-button-form-div
 {
   padding: 5px;
+  margin-left: 170px;
 }
 
 ul{
@@ -20,3 +30,13 @@ list-style-type: none;
   background-color: #E6E6E6;
   width: 70%;
 }
+
+.post-top-panel-row
+{
+  margin-left: 0px;
+}
+
+#post-top-panel{
+  border-radius: 1em;
+}
+

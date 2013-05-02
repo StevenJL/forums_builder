@@ -1,12 +1,14 @@
 <div id="forum-nav-panel">
-  <h4> <%= link_to @metaforum.name, root_url %> > <%= link_to @parent.name, super_forum_url(@parent) %> >
-  <%= @subforum.name %> </h4>
+  <div id="nav-content"><h4> 
+    <%= link_to @metaforum.name, root_url %> > <%= link_to @parent.name, super_forum_url(@parent) %> >
+    <%= @subforum.name %> </h4>
+  </div>
 </div>
 
 <div class='new-post-button-form-div'>
   <div class='new-post-button-div'>
     <% if user_signed_in? %>
-    <button class="btn btn-mini reply-button">New Post</button>
+    <button class="btn btn-mini new-post-button">New Post</button>
     <% else %>
     <%= link_to "Login to Reply", new_user_session_url %>
     <% end %>
@@ -20,21 +22,26 @@
 </div>
   
 <div id="post-top-panel" class="container">
-  <div class="row">
     <div class="span1">
       Post
     </div>
-    <div class="span1 offset3">
+    <div class="span1 offset4">
       Author
     </div>
-  </div>
 </div>
 
 
   <ul>
   <% @posts.each do |post| %>
     <li>
-    <%=link_to post.title, sub_forum_post_url(@subforum, post) %>
+      <div id="post-panel" class="container">
+        <div class="span5 offset1">
+          <%=link_to post.title, sub_forum_post_url(@subforum, post) %>
+        </div>
+        <div class="span2">
+          <%=link_to post.user.username, user_profile_url(post.user) %>
+        </div>
+      </div>
     </li>
   <% end %>
   </ul>
@@ -42,7 +49,7 @@
 <script>
   $(document).ready(function(){
     $("form").hide()
-    $(".reply-button").on('click', function(){
+    $(".new-post-button").on('click', function(){
       $(this).hide()
       $("form").slideDown()
     })
