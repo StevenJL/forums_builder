@@ -8,10 +8,10 @@
     <input type="date" name="user_profile[birth_date]">
     <br>
     <%= f.label :about_me, "About Me" %>
-    <textarea  id="user_profile_about_me" name="user_profile[about_me]" rows="10"><%= @user_profile.about_me%></textarea>
+    <textarea  id="user_profile_about_me" name="user_profile[about_me]" rows="5"><%= @user_profile.about_me%></textarea>
     <br>
     <%= f.label :signature, "Signature" %>
-    <textarea  id="user_profile_signature" name="user_profile[signature]" rows="10"><%= @user_profile.signature%></textarea>
+    <textarea  id="user_profile_signature" name="user_profile[signature]" rows="2"><%= @user_profile.signature%></textarea>
     <br>
     <%= f.submit %>
   <% end %>
