@@ -7,13 +7,11 @@
 
     <%= render partial: 'toppost' %>
 
-    <hr>
     <div id='replies'>
       <% @directreplies.each do |reply| %>
         <%= render partial: 'reply', :locals => { :reply => reply, :replies => @replies} %>
       <% end %>
     </div>
-
 
   </div>
 </div>
@@ -24,7 +22,7 @@
     $("form").hide()
     $(".reply-button").on('click', function(){
       $(this).hide()
-      $(this).parent().next().slideDown()
+      $("#post-reply-form").slideDown()
     })
 
   })
