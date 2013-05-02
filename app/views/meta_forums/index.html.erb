@@ -7,7 +7,7 @@
       <h2><%= @meta_forum.name %></h2>
       <h3 class="subheader"><%= @meta_forum.description %></h3>
     </div>
-    <div class="subforums-container">
+    <div class="container-fluid subforums-container">
       <% @superforums.each do |superforum| %>
         <div class="span12">
           <h4><%= superforum.name %></h4>
