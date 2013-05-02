@@ -1,5 +1,6 @@
 <div align="center">
 <h4> Create a New Forum</h4>
+
 <%= form_for (@super_forum) do |f| %>
   <%= f.label :name, "Forum Name" %>
   <%= f.text_field :name %><br>
@@ -7,14 +8,38 @@
   <textarea cols="40" id="super_forum_description" name="super_forum[description]" rows="3"></textarea>
   <br>
   <hr>
-    <%= f.fields_for(:sub_forums) do |g| %>
-    <%= g.label :name, "Sub-Forum Name"  %>
-    <%= g.text_field :name%>
-    <br>
-    <%= g.label :description, "Sub-Forum Description" %>
-    <textarea cols="40" id="super_forum_sub_forums_attributes_0_description" name="super_forum[sub_forums_attributes][0][description]" rows="4"></textarea>
-  <% end %>
+  <h5>Create Sub Forums</h5>
+    <% index = 0 %>
+    <%= f.fields_for(:sub_forums) do |g| %>    
+      <div class ='nested-forums' id="nest-form-<%= index %>" >
+        <%= g.label :name, "Sub-Forum Name"  %>
+        <%= g.text_field :name%>
+        <br>
+        <%= g.label :description, "Sub-Forum Description" %>
+        <textarea cols="40" id="super_forum_sub_forums_attributes_0_description" name="super_forum[sub_forums_attributes][0][description]" rows="4"></textarea>
+      </div>
+      <% index += 1 %>
+    <% end %>
   <br>
-<%= f.submit "Create New Forum and Sub Forums" %>
+<input type="button" id="add-subforums-button" value="Add Sub Forums">
+<br>
+<br>
+<input name="commit" type="submit" class="btn btn-success submit-button" value="Create">
 <% end %>
+
 </div>
+
+<script>
+
+$(document).ready(function(){
+  $('.nested-forums').hide()
+
+  var index = 0
+  $("#add-subforums-button").on('click', function(){
+    $('#nest-form-'+index).slideDown();
+    index = index + 1;
+  })
+
+})
+
+</script>

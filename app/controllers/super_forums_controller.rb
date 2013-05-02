@@ -12,7 +12,7 @@ class SuperForumsController < ApplicationController
 
   def new
     @super_forum = SuperForum.new
-    2.times { @super_forum.sub_forums.build }
+    10.times { @super_forum.sub_forums.build }
   end
 
   def create
