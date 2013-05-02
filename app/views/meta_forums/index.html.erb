@@ -7,20 +7,19 @@
       <h2><%= @meta_forum.name %></h2>
       <h3 class="subheader"><%= @meta_forum.description %></h3>
     </div>
-    <div class="container-fluid subforums-container">
+   
       <% @superforums.each do |superforum| %>
         <div class="span12">
-          <h4><%= superforum.name %></h4>
-          <h5><%= superforum.description %></h5>
-          <h6>Sub Forums:</h6>
+          <h3><%= superforum.name %></h3>
+          <h4><%= superforum.description %></h4>
+          <div class="span10"><h5>Sub Forums:</h5></div>
             <% @subforums[superforum.name].each do |subforum| %>
               <div class="span10">   
-                <%= link_to subforum.name, sub_forum_url(subforum) %>
+                <b><%= link_to subforum.name, sub_forum_url(subforum) %></b>
                 <%= subforum.description %> 
               </div> 
             <% end %>
         </div>
       <% end %>
-    </div>
   </div >
 </div>

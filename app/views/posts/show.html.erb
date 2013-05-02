@@ -1,25 +1,31 @@
-<p> <%= link_to MetaForum.first.name, root_url %> >
-     <%= link_to @parent.name, super_forum_url(@parent) %> >
-     <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %>  <p>
+<div class="container-fluid main-container">
+  <div class="row-fluid">
+    <div class="forum-nav-panel">
+        <h4><%= link_to @metaforum.name, root_url %> > <%= link_to @sub_forum.parent.name, super_forum_url(@sub_forum.parent) %> >
+        <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %></h4>
+    </div>
 
-<%= render partial: 'toppost' %>
+    <%= render partial: 'toppost' %>
 
-<hr>
-<div id='replies'>
-  <% @directreplies.each do |reply| %>
-    <%= render partial: 'reply', :locals => { :reply => reply, :replies => @replies} %>
-  <% end %>
+    <hr>
+    <div id='replies'>
+      <% @directreplies.each do |reply| %>
+        <%= render partial: 'reply', :locals => { :reply => reply, :replies => @replies} %>
+      <% end %>
+    </div>
+
+
+  </div>
 </div>
 
+  <script>
 
-<script>
+  $(document).ready(function(){
+    $("form").hide()
+    $(".reply-button").on('click', function(){
+      $(this).hide()
+      $(this).parent().next().slideDown()
+    })
 
-$(document).ready(function(){
-  $("form").hide()
-  $(".reply-button").on('click', function(){
-    $(this).hide()
-    $(this).parent().next().slideDown()
   })
-
-})
-</script>
+  </script>

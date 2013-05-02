@@ -1,50 +1,32 @@
-<div id="forum-nav-panel">
-  <div id="nav-content"><h4> 
-    <%= link_to @metaforum.name, root_url %> > <%= link_to @parent.name, super_forum_url(@parent) %> >
-    <%= @subforum.name %> </h4>
-  </div>
-</div>
-
-<div class='new-post-button-form-div'>
-  <div class='new-post-button-div'>
-    <% if user_signed_in? %>
-    <button class="btn btn-mini new-post-button">New Post</button>
-    <% else %>
-    <%= link_to "Login to Reply", new_user_session_url %>
-    <% end %>
-  </div>
-  <form action="/posts" method="post" id="new_post">
-    Title: <br> <input id="post_title" name="post[title]" size="30" type="text"><br>
-    Content: <br><textarea id="post[post_content]" name="post[content]"></textarea><br>    
-    <input type="hidden" name="post[forum_id]" value= <%= @subforum.id %> >
-    <input class="btn btn-success submit-button" type="submit"/>
-  </form>
-</div>
-  
-<div id="post-top-panel" class="container">
-    <div class="span1">
-      Post
+<div class="container-fluid main-container">
+  <div class="row-fluid">
+    <div class="forum-nav-panel">
+        <h4><%= link_to @metaforum.name, root_url %> > <%= link_to @parent.name, super_forum_url(@parent) %> >
+        <%= @subforum.name %></h4>
     </div>
-    <div class="span1 offset4">
-      Author
-    </div>
-</div>
-
-
-  <ul>
-  <% @posts.each do |post| %>
-    <li>
-      <div id="post-panel" class="container">
-        <div class="span5 offset1">
-          <%=link_to post.title, sub_forum_post_url(@subforum, post) %>
+      <div class='new-post-button-form-div'>
+        <div class='new-post-button-div'>
+            <% if user_signed_in? %>
+            <button class="btn btn-mini new-post-button">New Post</button>
+            <% else %>
+            <%= link_to "Login to Reply", new_user_session_url %>
+            <% end %>
         </div>
-        <div class="span2">
-          <%=link_to post.user.username, user_profile_url(post.user) %>
-        </div>
+        <form action="/posts" method="post" id="new_post">
+          Title: <br> <input id="post_title" name="post[title]" size="30" type="text"><br>
+          Content: <br><textarea id="post[post_content]" name="post[content]"></textarea><br>    
+          <input type="hidden" name="post[forum_id]" value= <%= @subforum.id %> >
+          <input class="btn btn-success submit-button" type="submit"/>
+        </form>
       </div>
-    </li>
-  <% end %>
-  </ul>
+        <div class="span1"><h5>Post Title</h5></div>
+        <div class="span1 offset6"><h5>Author</h5></div>
+        <% @posts.each do |post| %>
+          <div class="span7"><h5><%=link_to post.title, sub_forum_post_url(@subforum, post) %></h5></div>
+          <div class="span2"><h5><%=link_to post.user.username, user_profile_url(post.user) %></h5></div>
+        <% end %>
+  </div>
+</div>
 
 <script>
   $(document).ready(function(){
