@@ -9,4 +9,9 @@ class UsersController < ApplicationController
     @replies = @user.replies
   end
 
+  def edit
+    @user = User.find(params[:id])
+    @user_profile = @user.profile
+  end
+
 end

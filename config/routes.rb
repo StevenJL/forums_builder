@@ -14,7 +14,7 @@ ForumBuilder::Application.routes.draw do
     resources :posts
   end
 
-  resources :users, :only => [:show]
+  resources :users, :only => [:show, :edit]
 
   resources :posts do
     resources :replies, :only => [:edit, :destroy]
