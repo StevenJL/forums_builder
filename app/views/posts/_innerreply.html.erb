@@ -1,6 +1,6 @@
 <div class='reply-container'>
   <div class='reply-content'><%= reply.content %> </div>
-  <div class='reply-profile'><%= link_to reply.user.username, user_url(reply.user) %>
+  <div class='reply-profile'><%= link_to reply.user.username, user_profile_url(reply.user) %>
   </div>
   <div class='reply-button-div'>
     <% if user_signed_in? %>

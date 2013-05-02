@@ -1,0 +1,18 @@
+Edit <%= @user.username %>'s Profile
+
+<%= form_for(@user_profile) do |f| %>
+  <%= f.label :name, "Real Name" %>
+  <%= f.text_field :name , :value => @user_profile.name %>
+  <br>
+  <%= f.label :birth_date, "Birth Date" %>
+  <%= f.date_select :birth_date, :value=>@user_profile.birth_date %>
+  <br>
+  <%= f.label :about_me, "About Me" %>
+  <%= f.text_area :about_me, :value=>@user_profile.about_me %>
+  <textarea cols="40" id="user_profile_about_me" name="user_profile[about_me]" rows="20">I'm from the year 2000</textarea>
+  <br>
+  <%= f.label :signature, "Signature" %>
+  <%= f.text_area :signature, :value=>@user_profile.signature %><br>
+  <%= f.submit %>
+<% end %>
+

@@ -1,0 +1,30 @@
+<h1> User Profile </h1>
+
+UserName: <%= @user.username %><br>
+Email: <%= @user.email %><br>
+Real Name: <%= @user_profile.name %><br>
+Location: <%= @user_profile.name %><br>
+Birth Date: <%= @user_profile.birth_date %><br>
+About Me: <%= @user_profile.about_me %><br>
+Signature: <%= @user_profile.signature %>
+<br>
+<hr>
+All Posts by this User:
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.title %><br>
+      <%= post.content %>
+    </li>
+  <% end %>
+</ul>
+
+All Replies by this User:
+<ul>
+  <% @replies.each do |reply| %>
+    <li>
+      Post: <%= reply.post.title %><br>
+      Reply: <%= reply.content %>
+    </li>
+  <% end %>
+</ul>

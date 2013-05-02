@@ -19,7 +19,7 @@
         <div class="nav-collapse">
           <ul class="nav">
             <li class="signed-in-as-email"><% if user_signed_in? %> Signed in as: <%= current_user.email %><% end %></li>
-            <li><% if user_signed_in? %> <%= link_to "Your Profile", user_url(current_user) %> <% end %></li>
+            <li><% if user_signed_in? %> <%= link_to "Your Profile", user_profile_url(current_user) %> <% end %></li>
             <li><% if user_signed_in? %> <%= link_to "Logout", destroy_user_session_url, :method => :delete %> <% end %></li>                    
             <li><% if not user_signed_in? %> <%= link_to "Register", new_user_registration_url %> <% end %> </li>
             <li><% if not user_signed_in? %> <%= link_to "Login", new_user_session_url %> <% end %></li>
