@@ -1,7 +1,7 @@
 <div class="container-fluid main-container">
   
   <div class="row-fluid">
-    
+
     <div class="forum-nav-panel">
         <h4><%= link_to @metaforum.name, root_url %> > <%= link_to @sub_forum.parent.name, super_forum_url(@sub_forum.parent) %> >
         <%= link_to @sub_forum.name, sub_forum_url(@sub_forum) %></h4>
@@ -15,12 +15,7 @@
     </div>
   </div>
 
-<div class="row">
-    <div class="span2">fjkdajfdkl</div>
-    <div class="span9">fjkdajfdklafjkdal</div>
-</div>
-
-    <div id='replies'>
+    <div id='replies' style="margin-left:30px">
       <% @directreplies.each do |reply| %>
         <%= render partial: 'reply', :locals => { :reply => reply, :replies => @replies} %>
       <% end %>
@@ -33,9 +28,13 @@
 
   $(document).ready(function(){
     $("form").hide()
-    $(".reply-button").on('click', function(){
+    $(".reply-post-button").on('click', function(){
       $(this).hide()
       $("#post-reply-form").slideDown()
+    })
+    $(".reply-button").on('click', function(){
+      $(this).hide()
+      $(this).parent().next().slideDown()
     })
 
   })
