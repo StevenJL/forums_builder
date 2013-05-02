@@ -2,7 +2,8 @@
   <div class="row">
 
     <div class="span1">
-      <div class="reply-profile">
+      <div class="reply-profile" align="center">
+        <%= image_tag reply.user.user_profile.avatar.url(:tiny) %><br>
         <%= link_to reply.user.username, user_profile_url(reply.user)%>
       </div>
     </div>

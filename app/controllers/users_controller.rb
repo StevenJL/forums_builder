@@ -14,4 +14,3 @@ class UsersController < ApplicationController
     @user_profile = @user.profile
   end
 
-end
