@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="span2">
-      <div id="post-profile">
+      <div id="post-profile" align="center" >
         <%= image_tag @post.user.user_profile.avatar.url(:thumb) %><br>
         <%= link_to @post.user.username, user_profile_url(@post.user)%>
       </div>
@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class='reply-button-form-div'>
+    <div class='post-reply-button-form-div'>
       <div class='reply-button-div'>
         <% if user_signed_in? %>
         <button class="btn btn-mini reply-button">Reply</button>

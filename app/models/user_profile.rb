@@ -6,7 +6,8 @@ class UserProfile < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => {
     :big => "300x300>",
-    :thumb => "100x100>" },
+    :thumb => "100x100>",
+    :tiny => "60x60>" },
     :default_url => '/assets/images/missing_:default.png'
 
 end
