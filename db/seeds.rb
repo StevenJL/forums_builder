@@ -32,7 +32,7 @@ UserProfile.create(:user_id=>6, :name=>"Hermes Conrad", :location=>"New Jamaica"
 UserProfile.create(:user_id=>7, :name=>"Hubert Farnsworth", :location=>"New New York", :signature=>"Good news everyone")
 
 Post.create(:forum_id=>1, :user_id=>2, :title=>"We need a new FLT drive!",
-  :content=>"Our FLT is about to give out.  We need a new one now!",
+  :content=>"Our FLT is about to give out.  We need a new one now or our business is finished!  Last time we got stranded on the Andromeda galaxy and almost got eaten by a space spider.  Oh the humanity!",
   :views=>2, :upvotes=>0)
 Post.create(:forum_id=>6, :user_id=>3, :title=>"Fry sucks",
   :content=>"He used up all my make-up to paint Lela's face onto a blow-up doll!",

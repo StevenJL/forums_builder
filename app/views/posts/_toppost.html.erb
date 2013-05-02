@@ -1,32 +1,31 @@
-  <div class="span2">
-    <div id="post-profile" align="center" >
+  <div class="span2" align="center">
+    <!-- <div id="post-profile" align="center" > -->
       <%= image_tag @post.user.user_profile.avatar.url(:thumb) %><br>
       <%= link_to @post.user.username, user_profile_url(@post.user)%>
-    </div>
+    <!-- </div> -->
   </div>
   <div class="span9">
-    <div class='post-container'>
-      <div id="post-title">  
-        <%= @post.title %>
+    <!-- <div class='post-container'> -->
+      <div>  
+        <h5><%= @post.title %></h5>
       </div>
       <div id='post-content'>
         <%= @post.content %>
-      </div>
+      <!-- </div> -->
   </div>
-
-  <div class='post-reply-button-form-div'>
-    <div class='reply-button-div'>
+  <!-- <div class='post-reply-button-form-div'> -->
+    <!-- <div class='reply-button-div'> -->
       <% if user_signed_in? %>
       <button class="btn btn-mini reply-button">Reply</button>
       <% else %>
       <%= link_to "Login to Reply", new_user_session_url %>
       <% end %>
-    </div>
+    <!-- </div> -->
     <form action="/post/reply/new" method="post">
       <textarea class="reply-content" name='reply[content]'></textarea><br>
       <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
       <input type="hidden" name="reply[reply_id]" value= nil >
       <input class="btn btn-success submit-button" type="submit"/>
     </form>
-  </div>
+  <!-- </div> -->
 </div>
