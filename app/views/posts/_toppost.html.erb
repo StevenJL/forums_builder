@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="span3" style="height: 100px; width: 100px;">
+    <div class="span2">
       <div id="post-profile">
         <%= link_to @post.user.username, user_url(@post.user)%>
       </div>
     </div>
     <div class="span9">
-      <div class='post-container container-fluid'>
+      <div class='post-container'>
         <div id="post-title">
           <%= @post.title %>
         </div>
@@ -18,7 +18,7 @@
     <div class='reply-button-form-div'>
       <div class='reply-button-div'>
         <% if user_signed_in? %>
-        <button class="btn btn-mini pull-right reply-button">Reply</button>
+        <button class="btn btn-mini reply-button">Reply</button>
         <% else %>
         <%= link_to "Login to Reply", new_user_session_url %>
         <% end %>
@@ -27,7 +27,7 @@
         <textarea class="reply-content" name='reply[content]'></textarea><br>
         <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
         <input type="hidden" name="reply[reply_id]" value= nil >
-        <input class="btn btn-success pull-right submit-button" type="submit"/>
+        <input class="btn btn-success submit-button" type="submit"/>
       </form>
     </div>
 
