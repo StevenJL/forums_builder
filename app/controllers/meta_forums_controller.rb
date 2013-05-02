@@ -9,4 +9,7 @@ class MetaForumsController < ApplicationController
     end
   end
 
+  def admintools
+  end
+
 end

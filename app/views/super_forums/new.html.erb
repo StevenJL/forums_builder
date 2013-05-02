@@ -1,0 +1,11 @@
+<div align="center">
+<h4> Create a New Forum</h4>
+<%= form_for (@super_forum) do |f| %>
+  <%= f.label :name, "Forum Name" %>
+  <%= f.text_field :name %><br>
+  <%= f.label :description, "Forum Description" %>
+  <textarea cols="40" id="super_forum_description" name="super_forum[description]" rows="3"></textarea>
+  <br>
+<%= f.submit "Create New Forum" %>
+<% end %>
+</div>

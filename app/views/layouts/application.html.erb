@@ -23,7 +23,7 @@
             <li><% if user_signed_in? %> <%= link_to "Your Profile", user_profile_url(current_user) %> <% end %></li>
             <li><% if user_signed_in? %>
                   <% if current_user.admin? %>
-                    <%= link_to "Admin Tools",  %>
+                    <%= link_to "Admin Tools", admintools_url %>
                   <% end %>
                 <% end %> 
             <li><% if user_signed_in? %> <%= link_to "Logout", destroy_user_session_url, :method => :delete %> <% end %></li>                    
