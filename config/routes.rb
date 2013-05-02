@@ -11,7 +11,7 @@ ForumBuilder::Application.routes.draw do
   resources :meta_forum
 
   resources :super_forums do
-    resources :sub_forums, :only => [:create]
+    resources :sub_forums, :only => [:new, :create]
   end
 
   resources :sub_forums do

@@ -6,6 +6,15 @@
   <%= f.label :description, "Forum Description" %>
   <textarea cols="40" id="super_forum_description" name="super_forum[description]" rows="3"></textarea>
   <br>
-<%= f.submit "Create New Forum" %>
+  <hr>
+    <%= f.fields_for(:sub_forums) do |g| %>
+    <%= g.label :name, "Sub-Forum Name"  %>
+    <%= g.text_field :name%>
+    <br>
+    <%= g.label :description, "Sub-Forum Description" %>
+    <textarea cols="40" id="super_forum_sub_forums_attributes_0_description" name="super_forum[sub_forums_attributes][0][description]" rows="4"></textarea>
+  <% end %>
+  <br>
+<%= f.submit "Create New Forum and Sub Forums" %>
 <% end %>
 </div>

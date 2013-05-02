@@ -12,12 +12,13 @@ class SuperForumsController < ApplicationController
 
   def new
     @super_forum = SuperForum.new
+    2.times { @super_forum.sub_forums.build }
   end
 
   def create
     @super_forum = SuperForum.new(params[:super_forum])
     @super_forum.save
-    redirect_to edit_super_forum_url(@super_forum)
+    redirect_to root_url
   end
 
   def edit
