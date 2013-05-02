@@ -30,10 +30,12 @@
       </form>
     </div>
 
-        <% nested_replies = replies.select {|innerreply| innerreply.reply_id == reply.id} %>
-        <% nested_replies.each do |reply| %>
-          <%= render partial: 'reply', :locals => { :reply => reply, :replies => @replies} %>
-        <% end %>
+    <div style="padding: 15px">
+      <% nested_replies = replies.select {|innerreply| innerreply.reply_id == reply.id} %>
+      <% nested_replies.each do |reply| %>
+        <%= render partial: 'reply', :locals => { :reply => reply, :replies => @replies} %>
+      <% end %>
+    </div>
 
     </div>
   </div>
