@@ -1,24 +1,26 @@
-<div id="index-nav-panel">
-  <div id="index-nav-content">
-    <h4><%= @meta_forum.name %> </h4>
-    <h5><%= @meta_forum.description %> </h5>
-  </div>
+<div class="masthead">
 </div>
 
-<% @superforums.each do |superforum| %>
-  Forum Name: <%= superforum.name %>
-  <br>
-  Forum Description: <%= superforum.description %>
-  <br>
-  Sub Forums:
-  <ul>
-    <% @subforums[superforum.name].each do |subforum| %>
-    <li>
-      <%= link_to subforum.name, sub_forum_url(subforum) %>
-      <%= subforum.description %>
-    </li>
-    <% end %>
-  </ul>
-  
-  <hr>
-<% end %>
+<div class="container-fluid main-container">
+  <div class="row-fluid">
+    <div class="span12 secondary-headers">
+      <h2><%= @meta_forum.name %></h2>
+      <h3 class="subheader"><%= @meta_forum.description %></h3>
+    </div>
+    <div class="subforums-container">
+      <% @superforums.each do |superforum| %>
+        <div class="span12">
+          <h4><%= superforum.name %></h4>
+          <h5><%= superforum.description %></h5>
+          <h6>Sub Forums:</h6>
+            <% @subforums[superforum.name].each do |subforum| %>
+              <div class="span10">   
+                <%= link_to subforum.name, sub_forum_url(subforum) %>
+                <%= subforum.description %> 
+              </div> 
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div >
+</div>

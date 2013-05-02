@@ -1,11 +1,53 @@
+.masthead {
+  background: url("/planet_express.jpg");
+  background-size: cover;
+  min-height: 570px;
 
-body{
-  padding-top: 60px;
-  margin-top: 5px;
-  margin-left: 20px;
 }
 
-#index-nav-panel
+.masthead-header {
+  font-size: 3em;
+}
+
+.masthead-content {
+  background: #0A2A0A;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  margin-top: 180px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.span4.first {
+  margin-left: 0;
+}
+
+.secondary-headers {
+  margin-top: 20px;
+  text-align: center;
+  background: #FFFFFF;
+  border-radius: 1em;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.subforum-box {
+  background: #FFFFFF;
+  border-radius: 1em;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+
+.subforums-container{
+  background: #FFFFFF;
+  margin-top: 20px;
+  border-radius: 1em;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+body{
+}
+
+/*#index-nav-panel
 {
   margin: auto;
   background-color: #E6E6E6;
@@ -22,4 +64,4 @@ body{
   width: auto;
   margin: auto;
   margin-top: auto;
-}
+}*/
