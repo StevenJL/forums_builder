@@ -31,6 +31,10 @@ GEM
     annotate (2.5.0)
       rake
     arel (3.0.2)
+    aws-sdk (1.9.5)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
     better_errors (0.8.0)
       coderay (>= 1.0.0)
@@ -38,6 +42,10 @@ GEM
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -84,7 +92,14 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.2)
+    nokogiri (1.5.9)
     orm_adapter (0.4.0)
+    paperclip (3.4.1)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     polyglot (0.3.3)
     pry (0.9.12.1)
       coderay (~> 1.0.5)
@@ -146,6 +161,7 @@ GEM
     uglifier (2.0.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    uuidtools (2.1.4)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -154,6 +170,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws-sdk
   better_errors
   binding_of_caller
   coffee-rails (~> 3.2.1)
@@ -162,6 +179,7 @@ DEPENDENCIES
   jquery-rails
   less
   less-rails
+  paperclip
   pry-rails
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)

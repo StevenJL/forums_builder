@@ -1,6 +1,7 @@
 <h4> <%= @user.username %>'s profile </h4>
 
 UserName: <%= @user.username %><br>
+<%= image_tag @user_profile.avatar.url(:big) %><br>
 Email: <%= @user.email %><br>
 Real Name: <%= @user_profile.name %><br>
 Location: <%= @user_profile.name %><br>

@@ -13,6 +13,9 @@
     <%= f.label :signature, "Signature" %>
     <textarea  id="user_profile_signature" name="user_profile[signature]" rows="2"><%= @user_profile.signature%></textarea>
     <br>
+    <%= f.label :avatar, "Upload avatar image" %>
+    <%= f.file_field :avatar %>
+    <br>
     <%= f.submit %>
   <% end %>
 </div>
