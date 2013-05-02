@@ -1,16 +1,51 @@
-<h4> <%= link_to @metaforum.name, root_url %> > <%= link_to @parent.name, super_forum_url(@parent) %> >
-<%= @subforum.name %> </h4>
+<div id="forum-nav-panel">
+  <h4> <%= link_to @metaforum.name, root_url %> > <%= link_to @parent.name, super_forum_url(@parent) %> >
+  <%= @subforum.name %> </h4>
+</div>
 
-<% if user_signed_in? %>
-<%= link_to "New Post", new_sub_forum_post_url(@subforum) %>
-<% else %>
-<%= link_to "Login to Post", new_user_session_url %>
-<% end %>
+<div class='new-post-button-form-div'>
+  <div class='new-post-button-div'>
+    <% if user_signed_in? %>
+    <button class="btn btn-mini reply-button">New Post</button>
+    <% else %>
+    <%= link_to "Login to Reply", new_user_session_url %>
+    <% end %>
+  </div>
+  <form action="/posts" method="post" id="new_post">
+    Title: <br> <input id="post_title" name="post[title]" size="30" type="text"><br>
+    Content: <br><textarea id="post[post_content]" name="post[content]"></textarea><br>    
+    <input type="hidden" name="post[forum_id]" value= <%= @subforum.id %> >
+    <input class="btn btn-success submit-button" type="submit"/>
+  </form>
+</div>
+  
+<div id="post-top-panel" class="container">
+  <div class="row">
+    <div class="span1">
+      Post
+    </div>
+    <div class="span1 offset3">
+      Author
+    </div>
+  </div>
+</div>
 
-<ul>
-<% @posts.each do |post| %>
-  <li>
-  <%=link_to post.title, sub_forum_post_url(@subforum, post) %>
-  </li>
-<% end %>
-</ul>
+
+  <ul>
+  <% @posts.each do |post| %>
+    <li>
+    <%=link_to post.title, sub_forum_post_url(@subforum, post) %>
+    </li>
+  <% end %>
+  </ul>
+
+<script>
+  $(document).ready(function(){
+    $("form").hide()
+    $(".reply-button").on('click', function(){
+      $(this).hide()
+      $("form").slideDown()
+    })
+
+  })
+</script>

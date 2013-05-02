@@ -1,0 +1,22 @@
+#forum-nav-panel
+{
+  background-color: #E6E6E6;
+  height: 30px;
+  width: 70%;
+  align: center;
+}
+
+.new-post-button-form-div
+{
+  padding: 5px;
+}
+
+ul{
+list-style-type: none;  
+}
+
+#post-top-panel
+{
+  background-color: #E6E6E6;
+  width: 70%;
+}

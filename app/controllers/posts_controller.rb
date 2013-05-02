@@ -19,13 +19,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    sub_forum_id = params[:sub_forum_id]
-    user_id = current_user.id
-    title = params[:post][:title]
-    content = params[:post][:content]
-    @post = Post.create(:user_id=>user_id, :forum_id=>sub_forum_id, 
-      :title=>title, :content=>content, :views=>1, :upvotes=>0)
-    @subforum = SubForum.find(sub_forum_id)
+    @post = Post.new(params[:post])
+    @post.user_id = current_user.id
+    @post.upvotes = 0
+    @post.views = 0
+    @post.save
+    @subforum = SubForum.find(params[:post][:forum_id])
     redirect_to sub_forum_post_url(@subforum, @post)
   end
 
