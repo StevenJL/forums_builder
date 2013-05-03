@@ -1,32 +1,35 @@
-<div align="center">
-<h4> Create a New Forum</h4>
+<div class="container-fluid main-container" style="padding: 20px;">
+  <div class="row-fluid">
+    <div align="center">
+    <h4> Create a New Forum</h4>
 
-<%= form_for (@super_forum) do |f| %>
-  <%= f.label :name, "Forum Name" %>
-  <%= f.text_field :name %><br>
-  <%= f.label :description, "Forum Description" %>
-  <textarea cols="40" id="super_forum_description" name="super_forum[description]" rows="3"></textarea>
-  <br>
-  <hr>
-  <h5>Create Sub Forums</h5>
-    <% index = 0 %>
-    <%= f.fields_for(:sub_forums) do |g| %>    
-      <div class ='nested-forums' id="nest-form-<%= index %>" >
-        <%= g.label :name, "Sub-Forum Name"  %>
-        <%= g.text_field :name%>
-        <br>
-        <%= g.label :description, "Sub-Forum Description" %>
-        <textarea cols="40" id="super_forum_sub_forums_attributes_0_description" name="super_forum[sub_forums_attributes][0][description]" rows="4"></textarea>
-      </div>
-      <% index += 1 %>
+    <%= form_for (@super_forum) do |f| %>
+      <%= f.label :name, "Forum Name" %>
+      <%= f.text_field :name %><br>
+      <%= f.label :description, "Forum Description" %>
+      <textarea cols="40" id="super_forum_description" name="super_forum[description]" rows="3"></textarea>
+      <br>
+      <hr>
+      <h5>Create Sub Forums</h5>
+        <% index = 0 %>
+        <%= f.fields_for(:sub_forums) do |g| %>    
+          <div class ='nested-forums' id="nest-form-<%= index %>" >
+            <%= g.label :name, "Sub-Forum Name"  %>
+            <%= g.text_field :name%>
+            <br>
+            <%= g.label :description, "Sub-Forum Description" %>
+            <textarea cols="40" id="super_forum_sub_forums_attributes_0_description" name="super_forum[sub_forums_attributes][0][description]" rows="4"></textarea>
+          </div>
+          <% index += 1 %>
+        <% end %>
+      <br>
+    <input type="button" id="add-subforums-button" value="Add Sub Forums">
+    <br>
+    <br>
+    <input name="commit" type="submit" class="btn btn-success submit-button" value="Create">
     <% end %>
-  <br>
-<input type="button" id="add-subforums-button" value="Add Sub Forums">
-<br>
-<br>
-<input name="commit" type="submit" class="btn btn-success submit-button" value="Create">
-<% end %>
-
+    </div>
+  </div>
 </div>
 
 <script>

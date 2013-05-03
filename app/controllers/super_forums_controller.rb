@@ -12,10 +12,11 @@ class SuperForumsController < ApplicationController
 
   def new
     @super_forum = SuperForum.new
-    10.times { @super_forum.sub_forums.build }
+    5.times { @super_forum.sub_forums.build }
   end
 
   def create
+    params[:super_forum][:sub_forums_attributes] = params[:super_forum][:sub_forums_attributes].select {|key, value| value["name"] !=""}
     @super_forum = SuperForum.new(params[:super_forum])
     @super_forum.save
     redirect_to root_url
