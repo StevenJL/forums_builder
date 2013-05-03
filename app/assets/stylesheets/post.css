@@ -37,3 +37,19 @@
   padding: 5px;
   margin-left: -60px;
 }
+
+.green-arrow
+{
+  color: #0B610B;
+}
+
+.gray-arrow
+{
+  color: #A4A4A4;
+}
+
+.red-arrow
+{
+  color: #FF0000;
+}
+
