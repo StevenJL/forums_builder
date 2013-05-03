@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502011954) do
+ActiveRecord::Schema.define(:version => 20130503041816) do
 
   create_table "meta_forums", :force => true do |t|
     t.string   "name"
