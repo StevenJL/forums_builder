@@ -16,7 +16,7 @@
         <br>
         <br>
         <%= f.label :avatar, "Upload avatar image" %>
-        <input style="margin-left: 100px;" id="user_profile_avatar" name="user_profile[avatar]" type="file">
+        <%= f.file_field :avatar %>
         <br>
         <%= f.submit %>
       <% end %>
