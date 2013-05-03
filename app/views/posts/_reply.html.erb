@@ -14,8 +14,9 @@
         <div class='reply-content'>
           <%= reply.content %>
         </div>
-        <div>
-          <font color="gray">Posted: <%= date_parse(reply.created_at) %></font>
+        <div class="row">
+          <div class="span4" style="margin-left: 32px;"><font color="gray">Posted: <%= date_parse(reply.created_at) %></font></div>
+          <div class="span3" style="margin-left: -32px;"><font color="gray">Upvotes: <%= reply.upvotes %></font></div>
         </div>
       </div>
 

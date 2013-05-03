@@ -8,10 +8,11 @@
   <div class="span9">
     <!-- <div class='post-container'> -->
       <div>  
-        <h5><%= @post.title %></h5>
+        <h4><%= @post.title %></h4>
       </div>
-      <div>  
-        <font color="gray">Posted: <%= date_parse(@post.created_at) %></font>
+      <div class="row" style="margin-left: 3px;">  
+        <div class="span3"><font color="gray">Posted: <%= date_parse(@post.created_at) %></font></div>
+        <div class="span3"><font color="gray">Upvotes: <%= @post.upvotes %></font> </div>
       </div>
       <div id='post-content' style="padding: 15px;">
         <%= @post.content %>

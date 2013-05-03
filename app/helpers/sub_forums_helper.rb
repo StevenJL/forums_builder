@@ -1,7 +1,7 @@
 module SubForumsHelper
 
   def date_parse(dateobject) 
-    "#{dateobject.month}/#{dateobject.day}/#{dateobject.year}, #{time_parse(dateobject)}" 
+    "#{dateobject.month}/#{dateobject.day}/#{dateobject.year},#{time_parse(dateobject)}" 
   end
 
   def time_parse(date_object)
