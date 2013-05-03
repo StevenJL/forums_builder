@@ -13,4 +13,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_profile = @user.profile
   end
+  
+end
 
