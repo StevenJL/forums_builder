@@ -10,13 +10,13 @@
    
       <% @superforums.each do |superforum| %>
         <div class="span12">
-          <h3><%= superforum.name %></h3>
-          <h4><%= superforum.description %></h4>
-          <div class="span10"><h5>Sub Forums:</h5></div>
+          <h2><%= superforum.name %></h2>
+          <h3><%= superforum.description %></h3>
+          <div class="span10"><h4>Sub Forums:</h4></div>
             <% @subforums[superforum.name].each do |subforum| %>
               <div class="span10">   
-                <b><%= link_to subforum.name, sub_forum_url(subforum) %></b>
-                <%= subforum.description %> 
+                <font size="4"><b><%= link_to subforum.name, sub_forum_url(subforum) %></b>
+                <%= subforum.description %> </font>
               </div> 
             <% end %>
         </div>

@@ -14,6 +14,9 @@
         <div class='reply-content'>
           <%= reply.content %>
         </div>
+        <div>
+          <font color="gray">Posted: <%= date_parse(reply.created_at) %></font>
+        </div>
       </div>
 
     <div class='reply-button-form-div'>

@@ -7,23 +7,29 @@
       <div class='new-post-button-form-div'>
         <div class='new-post-button-div'>
             <% if user_signed_in? %>
-            <button class="btn btn-mini new-post-button">New Post</button>
+            <button class="btn btn-success new-post-button">New Post</button>
             <% else %>
-            <%= link_to "Login to Reply", new_user_session_url %>
+            <%= link_to "Login to Post", new_user_session_url %>
             <% end %>
         </div>
         <form action="/posts" method="post" id="new_post">
-          Title: <br> <input id="post_title" name="post[title]" size="30" type="text"><br>
-          Content: <br><textarea id="post[post_content]" name="post[content]"></textarea><br>    
+          <p>Title:</p><input id="post_title" name="post[title]" size="30" type="text"><br>
+          <p>Content:</p><br><textarea id="post[post_content]" name="post[content]"></textarea><br>    
           <input type="hidden" name="post[forum_id]" value= <%= @subforum.id %> >
           <input class="btn btn-success submit-button" type="submit"/>
         </form>
       </div>
-        <div class="span1"><h5>Post Title</h5></div>
-        <div class="span1 offset6"><h5>Author</h5></div>
+      <div class="span10" style="background-color: #E6E6E6; height: 5px; border-radius: 1em;">
+        <div class="span2" style="margin-left: 20px; margin-top: 5px;">Post Title</div>
+        <div class="span1 offset5" style="margin-top: 5px;">Author</div>
+        <div class="span1" style="margin-top: 5px;">Replies</div>
+        <div class="span1" style="margin-top: 5px;">Date</div>
+       </div>
         <% @posts.each do |post| %>
-          <div class="span7"><h5><%=link_to post.title, sub_forum_post_url(@subforum, post) %></h5></div>
-          <div class="span2"><h5><%=link_to post.user.username, user_profile_url(post.user) %></h5></div>
+          <div class="span6"><h4><%=link_to post.title, sub_forum_post_url(@subforum, post) %></h4></div>
+          <div class="span1"><h5><%=link_to post.user.username, user_profile_url(post.user) %></h5></div>
+          <div class="span1" style="margin-top: 10px;" ><%= post.replies.length %></div>
+          <div class="span2" style="margin-left: -10px; margin-top: 9px;" ><%= date_parse(post.created_at) %></div>
         <% end %>
   </div>
 </div>

@@ -10,12 +10,15 @@
       <div>  
         <h5><%= @post.title %></h5>
       </div>
-      <div id='post-content'>
+      <div>  
+        <font color="gray">Posted: <%= date_parse(@post.created_at) %></font>
+      </div>
+      <div id='post-content' style="padding: 15px;">
         <%= @post.content %>
       <!-- </div> -->
       </div>
   </div>
-  <div class="span3">
+  <div class="span2 offset2">
      <!-- <div class='post-reply-button-form-div'> -->
       <!-- <div class='reply-button-div'> -->
         <% if user_signed_in? %>
@@ -25,7 +28,7 @@
         <% end %>
       <!-- </div> -->
       <form action="/post/reply/new" method="post" id="post-reply-form">
-        <textarea class="reply-content" name='reply[content]'></textarea><br>
+        <textarea rows="6" class="reply-content" name='reply[content]'></textarea><br>
         <input type="hidden" name="reply[post_id]" value= <%= @post.id %> >
         <input type="hidden" name="reply[reply_id]" value= nil >
         <input class="btn btn-success submit-button" type="submit"/>
