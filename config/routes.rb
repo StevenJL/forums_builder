@@ -4,6 +4,8 @@ ForumBuilder::Application.routes.draw do
 
   match 'admintools' => 'meta_forums#admintools'
 
+  match 'delete_forums' => 'super_forums#delete_view'
+
   devise_for :users
 
   root :to => "meta_forums#index"

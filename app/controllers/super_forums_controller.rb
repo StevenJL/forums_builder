@@ -27,6 +27,7 @@ class SuperForumsController < ApplicationController
   end
 
   def delete_view 
+    @super_forums = SuperForum.all
   end
 
 end
