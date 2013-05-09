@@ -26,4 +26,7 @@ class SuperForumsController < ApplicationController
     @super_forum = SuperForum(params[:id])
   end
 
+  def delete_view 
+  end
+
 end
