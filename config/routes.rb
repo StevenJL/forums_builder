@@ -4,7 +4,13 @@ ForumBuilder::Application.routes.draw do
 
   match 'admintools' => 'meta_forums#admintools'
 
-  match 'delete_forums' => 'super_forums#delete_view'
+  match 'delete_forums_view' => 'super_forums#delete_view'
+
+  match 'delete_posts_view' => 'posts#delete_view'
+
+  match 'delete_forums' => 'super_forums#destroy'
+
+  match 'delete_posts' => 'posts#destroy'
 
   devise_for :users
 
@@ -27,3 +33,4 @@ ForumBuilder::Application.routes.draw do
   end
 
 end
+

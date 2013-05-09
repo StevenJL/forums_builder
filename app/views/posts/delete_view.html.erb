@@ -1,0 +1,12 @@
+<div class="container-fluid main-container">
+  <h5>All Posts</h5>
+  <form action="/delete_posts">
+    <% @posts.each do |p| %>
+      <input type="checkbox" name = "to_delete[]" value="<%= p.id %>" >
+      <%= p.title %>
+      <br>
+    <% end %>
+    <br>
+    <input type="submit" value="Delete">
+  </form>
+</div>

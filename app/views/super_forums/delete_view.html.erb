@@ -1,15 +1,12 @@
 <div class="container-fluid main-container">
   <h5>Forums</h5>
-
-  <form>
-
+  <form action="/delete_forums">
     <% @super_forums.each do |sf| %>
       <input type="checkbox" name = "to_delete[]" value="<%= sf.id %>" >
       <%= sf.name %>
       <br>
     <% end %>
-
+    <br>
+    <input type="submit" value="Delete">
   </form>
-
-
 </div>

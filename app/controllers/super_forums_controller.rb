@@ -30,4 +30,24 @@ class SuperForumsController < ApplicationController
     @super_forums = SuperForum.all
   end
 
+  def destroy
+    forums_to_delete = params[:to_delete]
+    forums_to_delete.map! { |id| id.to_i }
+    forums_to_delete.each do |id|
+      sf = SuperForum.find(id)
+      all_sub_forums = sf.sub_forums
+      all_sub_forums.each do |subforum|
+        subforum.posts.each do |post|
+          post.replies.each do |reply|
+            reply.destroy
+          end
+          post.destroy
+        end
+        subforum.destroy
+      end
+      sf.destroy
+    end
+    redirect_to root_url
+  end
+
 end
