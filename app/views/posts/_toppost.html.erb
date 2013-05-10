@@ -75,7 +75,14 @@
           $('.icon-arrow-down').toggleClass("gray-arrow")
           $('.icon-arrow-down').toggleClass("red-arrow")
           
-          
+          $.ajax({
+            url: '/post_downvotes',
+            data: { user_id: <%= current_user.id %>, post_id: <%= @post.id %> },
+            success: function(data){
+              $("#upvotes").html(data)
+            }
+          })          
+
         }else{
           alert('You must be signed in to downvotes')
         }

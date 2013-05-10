@@ -14,6 +14,8 @@ ForumBuilder::Application.routes.draw do
 
   match '/post_upvotes' => 'post_upvotes#add_upvote'
 
+  match '/post_downvotes' => 'post_downvotes#add_downvote'
+
   devise_for :users
 
   root :to => "meta_forums#index"
