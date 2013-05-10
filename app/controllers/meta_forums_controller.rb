@@ -12,4 +12,14 @@ class MetaForumsController < ApplicationController
   def admintools
   end
 
+  def edit
+    @meta_forum = MetaForum.first
+  end
+
+  def update
+    @meta_forum = MetaForum.first
+    @meta_forum.update_attributes(params[:meta_forum])
+    redirect_to root_url
+  end
+
 end

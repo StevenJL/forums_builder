@@ -12,6 +12,11 @@
         <div class="span12">
           <h2><%= superforum.name %></h2>
           <h3><%= superforum.description %></h3>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <%= link_to "Edit Forum", edit_super_forum_url(superforum)%>
+            <% end %>
+          <% end %> 
           <div class="span10"><h4>Sub Forums:</h4></div>
             <% @subforums[superforum.name].each do |subforum| %>
               <div class="span10">   

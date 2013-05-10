@@ -16,7 +16,7 @@ ForumBuilder::Application.routes.draw do
 
   root :to => "meta_forums#index"
 
-  resources :meta_forum
+  resources :meta_forums
 
   resources :super_forums do
     resources :sub_forums, :only => [:new, :create]

@@ -23,7 +23,7 @@ class SuperForumsController < ApplicationController
   end
 
   def edit
-    @super_forum = SuperForum(params[:id])
+    @super_forum = SuperForum.find(params[:id])
   end
 
   def delete_view 
@@ -47,6 +47,12 @@ class SuperForumsController < ApplicationController
       end
       sf.destroy
     end
+    redirect_to root_url
+  end
+
+  def update
+    @super_forum = SuperForum.find(params[:id])
+    @super_forum.update_attributes(params[:super_forum])
     redirect_to root_url
   end
 
