@@ -11,13 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510161711) do
+ActiveRecord::Schema.define(:version => 20130510184628) do
 
   create_table "meta_forums", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "post_downvotes", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "post_upvotes", :force => true do |t|
@@ -44,6 +51,13 @@ ActiveRecord::Schema.define(:version => 20130510161711) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "upvotes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "replies_downvotes", :force => true do |t|
+    t.integer  "reply_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
