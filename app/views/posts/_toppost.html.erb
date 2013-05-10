@@ -14,7 +14,7 @@
         <div class="span3"><font color="gray">Posted: <%= date_parse(@post.created_at) %></font></div>
         <div class="span1" style="margin-left: 40px;"><i class="icon-arrow-up" id="post-upvote"></i></div>
         <div class="span1" style="margin-left: -30px;"><i class="icon-arrow-down" id="post-downvote"></i></div>
-        <div class="span3" style="margin-left: -30px;"><font color="gray">Upvotes: <%= @post.upvotes %></font> </div>
+        <div class="span3" style="margin-left: -30px;"><font color="gray">Upvotes: <%= @post.get_upvotes %></font> </div>
       </div>
       <div id='post-content' style="padding: 15px;">
         <%= @post.content %>

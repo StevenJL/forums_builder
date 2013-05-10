@@ -16,5 +16,4 @@ class AddDownVotesJoinTable < ActiveRecord::Migration
 
   end
 
-
 end
