@@ -19,10 +19,15 @@
           <% end %> 
           <div class="span10"><h4>Sub Forums:</h4></div>
             <% @subforums[superforum.name].each do |subforum| %>
-              <div class="span10">   
-                <font size="4"><b><%= link_to subforum.name, sub_forum_url(subforum) %></b>
+              <div class="span6">   
+                <font size="3"><b><%= link_to subforum.name, sub_forum_url(subforum) %></b>
                 <%= subforum.description %> </font>
-              </div> 
+              </div>
+              <div class="span2"> <%= subforum.posts.length %> posts</div>
+                <% unless subforum.posts.empty? %>
+                <% show_name = subforum.posts.last.user.username %>
+                <% end %>
+              <div class="span2"> Last Post by:  <%= show_name %></div>
             <% end %>
         </div>
       <% end %>
