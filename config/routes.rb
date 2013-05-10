@@ -12,6 +12,8 @@ ForumBuilder::Application.routes.draw do
 
   match 'delete_posts' => 'posts#destroy'
 
+  match '/post_upvotes' => 'post_upvotes#add_upvote'
+
   devise_for :users
 
   root :to => "meta_forums#index"

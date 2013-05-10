@@ -14,7 +14,7 @@
         <div class="span3"><font color="gray">Posted: <%= date_parse(@post.created_at) %></font></div>
         <div class="span1" style="margin-left: 40px;"><i class="icon-arrow-up" id="post-upvote"></i></div>
         <div class="span1" style="margin-left: -30px;"><i class="icon-arrow-down" id="post-downvote"></i></div>
-        <div class="span3" style="margin-left: -30px;"><font color="gray">Upvotes: <%= @post.get_upvotes %></font> </div>
+        <div class="span3" style="margin-left: -30px;"><font color="gray">Upvotes: <span id="upvotes"><%= @post.get_upvotes %></span></font> </div>
       </div>
       <div id='post-content' style="padding: 15px;">
         <%= @post.content %>
@@ -44,19 +44,42 @@
 
   $(document).ready(function(){
 
+    var user_signed_in_js = false
+    <% if user_signed_in? %>
+      user_signed_in_js = true
+    <% end %>
+
     $('.icon-arrow-up').addClass("gray-arrow")
     $('.icon-arrow-down').addClass("gray-arrow")
 
       $(".icon-arrow-up").on('click', function(){
-        $('.icon-arrow-up').toggleClass("gray-arrow")
-        $('.icon-arrow-up').toggleClass("green-arrow")
+        if(user_signed_in_js){
+          $('.icon-arrow-up').toggleClass("gray-arrow")
+          $('.icon-arrow-up').toggleClass("green-arrow")
+
+          $.ajax({
+            url: '/post_upvotes',
+            data: { user_id: <%= current_user.id %>, post_id: <%= @post.id %> },
+            success: function(data){
+              $("#upvotes").html(data)
+            }
+          })
+
+        }else{
+          alert('You must be signed in to upvote')
+        }
       })
 
       $(".icon-arrow-down").on('click', function(){
-        $('.icon-arrow-down').toggleClass("gray-arrow")
-        $('.icon-arrow-down').toggleClass("red-arrow")
+        if(user_signed_in_js){
+          $('.icon-arrow-down').toggleClass("gray-arrow")
+          $('.icon-arrow-down').toggleClass("red-arrow")
+          
+          
+        }else{
+          alert('You must be signed in to downvotes')
+        }
       })
-
     
   })
 </script>
